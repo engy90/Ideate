@@ -1,0 +1,8 @@
+23:32:34.119 [TestNG-tests-2] INFO  Ideate.Login - validation is done  
+23:32:34.130 [TestNG-tests-2] DEBUG Ideate.Login - HIII
+23:35:32.629 [TestNG-tests-2] DEBUG Ideate.Login - Iam debugging
+23:35:43.196 [TestNG-tests-2] INFO  Ideate.Login - browseris initiallized 
+23:35:43.610 [TestNG-tests-2] DEBUG Ideate.Login - HIII
+23:39:48.087 [TestNG-tests-2] DEBUG Ideate.Login - Iam debugging
+23:39:57.749 [TestNG-tests-2] INFO  Ideate.Login - browseris initiallized 
+23:39:58.062 [TestNG-tests-2] DEBUG Ideate.Login - HIII

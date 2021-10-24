@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" parallel="tests" name="logintest(failed)" verbose="0">
+    <classes>
+      <class name="Ideate.Login">
+        <methods>
+          <include name="teardown"/>
+          <include name="tearup"/>
+          <include name="navigation" invocation-numbers="1"/>
+        </methods>
+      </class> <!-- Ideate.Login -->
+    </classes>
+  </test> <!-- logintest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
