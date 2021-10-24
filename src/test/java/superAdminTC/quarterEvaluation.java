@@ -59,82 +59,91 @@ public class quarterEvaluation extends base {
 	@Test
 	public   void employeeLogin() throws IOException
 	{
-		CrowedEvaluationPage cr = new CrowedEvaluationPage(driver) ; 
-		cr.options1().click();
-		cr.clickShortlist1().click();
+		CrowedEvaluationPage cr = new CrowedEvaluationPage(driver) ;
+		 Actions build = new Actions(driver);
+		 
+		 String path1 ="//div[text()='Expert Review Evaluation']/parent::div/parent::div/parent::ite-modal/child::div[2]/child::ite-evaluation-rating/child::ite-rating-comments/child::div/child::div[2]/child::div[1]/child::div[";
+		 String path2 = "]/child::div[1]/child::div[1]/child::div["; 
+		 String path3 ="]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]";
+		 
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			cr.options2().click();
+			cr.clickShortlist2().click();
+			driver.switchTo().alert().accept();
+		/*
+		 * cr.options1().click(); cr.clickShortlist1().click();
 		driver.switchTo().alert().accept();
-		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
-		cr.clickShortlisted1().click();
-		cr.clickEvaluate1().click();  
-		
-		
-//		
+		 * driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		 * cr.clickShortlisted1().click(); cr.clickEvaluate1().click(); Actions build =
+		 * new Actions(driver);
+		 * 
+		 * String path1
+		 * ="//div[text()='Expert Review Evaluation']/parent::div/parent::div/parent::ite-modal/child::div[2]/child::ite-evaluation-rating/child::ite-rating-comments/child::div/child::div[2]/child::div[1]/child::div["
+		 * ; String path2 = "]/child::div[1]/child::div[1]/child::div["; String path3 =
+		 * "]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]" ; for (int i
+		 * = 1 ; i <=10 ; i++)
+		 * 
+		 * {
+		 * 
+		 * for (int j =1 ; j<=2 ; j++) {
+		 * 
+		 * try {
+		 * 
+		 * 
+		 * WebDriverWait wait=new WebDriverWait(driver, 20);
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path1+i+
+		 * path2+j+path3)));
+		 * 
+		 * build.moveToElement(driver.findElement(By.xpath(path1+i+path2+j+path3))).
+		 * click().build().perform(); } catch(Exception e) { System.out.println(e); }
+		 * 
+		 * }
+		 * 
+		 * }
+		 * 
+		 * 
+		 * build.moveToElement(cr.clickupdate()).click().build().perform();
+		 */
+		 
+		 //-----------------------------------------------------------------------------------
+//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 //		cr.options2().click();
-//		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 //		cr.clickShortlist2().click();
-//		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
-//
-//		cr.options3().click();
-//		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
-//
-//		cr.clickShortlist3().click();
-//		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-		Actions build = new Actions(driver);
-//		// driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-//		build.moveToElement(cr.clickShortlisted1());
+//		driver.switchTo().alert().accept();
+//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 //		cr.clickShortlisted1().click();
-//		//build.moveToElement(cr.clickShortlisted1()).click().build().perform();
 //		cr.clickEvaluate1().click();  
-//		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-//		//driver.findElement(By.xpath("//div[text()='Expert Review Evaluation']/parent::div/parent::div/parent::ite-modal/child::div[2]/child::ite-evaluation-rating/child::ite-rating-comments/child::div/child::div[2]/child::div[1]/child::div[1]/child::div[1]/child::div[1]/child::div[1]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]")).click();
+//		for (int i = 1 ; i <=10 ; i++) 
 //
+//		{ 
 //
-//		 build.moveToElement(driver.findElement(By.xpath("//div[text()='Expert Review Evaluation']/parent::div/parent::div/parent::ite-modal/child::div[2]/child::ite-evaluation-rating/child::ite-rating-comments/child::div/child::div[2]/child::div[1]/child::div[8]/child::div[1]/child::div[1]/child::div[1]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]"))).click().build().perform();
-    String path1 ="//div[text()='Expert Review Evaluation']/parent::div/parent::div/parent::ite-modal/child::div[2]/child::ite-evaluation-rating/child::ite-rating-comments/child::div/child::div[2]/child::div[1]/child::div[";
-	String path2 = "]/child::div[1]/child::div[1]/child::div[";
-	String path3 = "]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]" ;
-		for (int i = 1 ; i <=10 ; i++) 
-
-		{ driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-
-			for (int j =1 ; j<=2 ; j++)
-			{
-				
-				try
-				   {
-					driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-
-					WebDriverWait wait=new WebDriverWait(driver, 30);
-					 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path1+i+path2+j+path3))); 
-							
-		                     build.moveToElement(driver.findElement(By.xpath(path1+i+path2+j+path3))).click().build().perform();
-				   }
-				catch(Exception e)
-				  {
-				    System.out.println(e);
-				  }
-				
-				
-				/*
-				 * else {
-				 * 
-				 * System.out.
-				 * println("//div[text()='Expert Review Evaluation']/parent::div/parent::div/parent::ite-modal/child::div[2]/child::ite-evaluation-rating/child::ite-rating-comments/child::div/child::div[2]/child::div[1]/child::div["
-				 * +i+"]/child::div[1]/child::div[1]/child::div["+j+
-				 * "]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]"+
-				 * "/n Not found i="+i+"  j="+j) ;
-				 */
-
-					
-				}
-
-			}
+//			for (int j =1 ; j<=2 ; j++)
+//			{
+//				
+//				try
+//				   {
+//					
+//
+//					WebDriverWait wait=new WebDriverWait(driver, 20);
+//					 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path1+i+path2+j+path3))); 
+//							
+//		                     build.moveToElement(driver.findElement(By.xpath(path1+i+path2+j+path3))).click().build().perform();
+//				   }
+//				catch(Exception e)
+//				  {
+//				    System.out.println(e);
+//				  }
+//					
+//				}
+//
+//			}
+//		build.moveToElement(cr.clickupdate()).click().build().perform();
+//
+//        
+//		
+		
 
 		}
-
-
-
-	
 
 	@AfterTest
 	public void teardown()

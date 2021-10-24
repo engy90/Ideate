@@ -43,34 +43,50 @@ public class CrowedEvaluationPage {
 	
 	public WebElement options1() 
 	{
-		return driver.findElement(cardOptions1);
+		/*
+		 * WebDriverWait wait=new WebDriverWait(driver, 30);
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated(shortlist2));
+		 */		return driver.findElement(cardOptions1);
 	}
 
 	public WebElement options2() 
-	{
+	{/*
+		 * WebDriverWait wait=new WebDriverWait(driver, 30);
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated(shortlist2));
+		 */
 		return driver.findElement(cardOptions2);
 	}
 
 	public WebElement options3() 
 	{
+		/*
+		 * WebDriverWait wait=new WebDriverWait(driver, 30);
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated(shortlist2));
+		 */
 		return driver.findElement(cardOptions3);
+		
 	}
 	
 	public WebElement clickShortlist1() 
-	{
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+	{/*
+		 * WebDriverWait wait=new WebDriverWait(driver, 30);
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated(shortlist2));
+		 */
 		return driver.findElement(shortlist1);
+		
 	}
 	
 	public WebElement clickShortlist2() 
 	{
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		WebDriverWait wait=new WebDriverWait(driver, 30);
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(shortlist2));
 		return driver.findElement(shortlist2);
 	}
 	
 	public WebElement clickShortlist3() 
 	{
-		 driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		WebDriverWait wait=new WebDriverWait(driver, 30);
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(shortlist3));
 		return driver.findElement(shortlist3);
 	}
 	
@@ -90,6 +106,11 @@ public class CrowedEvaluationPage {
 		
 	}
 
-
+	public WebElement clickupdate() 
+	{WebDriverWait wait=new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(updateButton));  
+		return driver.findElement(updateButton);
+		
+	}
 
 }
