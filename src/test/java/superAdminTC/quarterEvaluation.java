@@ -71,10 +71,7 @@ public class quarterEvaluation extends base {
 			cr.options1().click();
 			cr.clickShortlist1().click();
 			driver.switchTo().alert().accept();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			//build.moveToElement(driver.findElement(By.xpath("//div[text()=' 10 Most Liked Ideas ']"))).build().perform();
-			//driver.wait(Timeout.ofSeconds(5), 5);
-			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			
 			build.moveToElement(cr.options2()).click().build().perform();
 			build.moveToElement(cr.clickShortlist2()).click().build().perform();
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
