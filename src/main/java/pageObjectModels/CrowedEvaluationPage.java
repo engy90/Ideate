@@ -20,11 +20,11 @@ public class CrowedEvaluationPage {
 	By shortlist2 =By.xpath("//div[text()=' 10 Least Liked Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[1]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[2]/child::button[3]");
 	By shortlist3 =By.xpath("//div[text()=' All Other Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[1]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[2]/child::button[3]");
 
-	By shortlistedOption1 = By.xpath("//div[text()=' Shortlisted Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[1]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i[@id='moreActions']");
-	By shortlistedOption2 = By.xpath("//div[text()=' Shortlisted Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[2]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i");
-	By shortlistedOption3 = By.xpath("//div[text()=' Shortlisted Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[3]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i");
-
+	String shortlisted1 ="//div[text()=' Shortlisted Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[";
 	
+	String shortlisted2 ="]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i";
+	String ideaNumber;
+       
 	By evaluate1 = By.xpath("//div[text()=' Shortlisted Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[1]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[2]/child::button[4]");
 	By evaluate2 = By.xpath("//div[text()=' Shortlisted Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[2]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[2]/child::button[4]");
 	By evaluate3 = By.xpath("//div[text()=' Shortlisted Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[3]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[2]/child::button[4]");
@@ -39,6 +39,15 @@ public class CrowedEvaluationPage {
 	public CrowedEvaluationPage(WebDriver driver2) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver2 ; 
+	}
+	
+	public WebElement clickShortlisted(String z) 
+	{
+		WebDriverWait wait=new WebDriverWait(driver, 30);
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(shortlisted1+z+shortlisted2)));
+		 System.out.println(shortlisted1+z+shortlisted2);
+		return driver.findElement(By.xpath(shortlisted1+z+shortlisted2));
+		
 	}
 	
 	public WebElement options1() 
@@ -59,10 +68,10 @@ public class CrowedEvaluationPage {
 
 	public WebElement options3() 
 	{
-		/*
-		 * WebDriverWait wait=new WebDriverWait(driver, 30);
-		 * wait.until(ExpectedConditions.visibilityOfElementLocated(shortlist2));
-		 */
+		
+		  WebDriverWait wait=new WebDriverWait(driver, 30);
+		  wait.until(ExpectedConditions.elementToBeClickable(cardOptions3));
+		 
 		return driver.findElement(cardOptions3);
 		
 	}
@@ -90,13 +99,7 @@ public class CrowedEvaluationPage {
 		return driver.findElement(shortlist3);
 	}
 	
-	public WebElement clickShortlisted1() 
-	{
-		WebDriverWait wait=new WebDriverWait(driver, 30);
-		 wait.until(ExpectedConditions.visibilityOfElementLocated(shortlistedOption1));
-		return driver.findElement(shortlistedOption1);
-		
-	}
+	
 	public WebElement clickEvaluate1() 
 	{
 		WebDriverWait wait=new WebDriverWait(driver, 30);

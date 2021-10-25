@@ -71,45 +71,49 @@ public class quarterEvaluation extends base {
 			cr.options1().click();
 			cr.clickShortlist1().click();
 			driver.switchTo().alert().accept();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			build.moveToElement(driver.findElement(By.xpath("//div[text()=' 10 Most Liked Ideas ']"))).build().perform();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			//build.moveToElement(driver.findElement(By.xpath("//div[text()=' 10 Most Liked Ideas ']"))).build().perform();
 			//driver.wait(Timeout.ofSeconds(5), 5);
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			build.moveToElement(cr.options2()).click().build().perform();
+			build.moveToElement(cr.clickShortlist2()).click().build().perform();
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			driver.navigate().refresh();
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			build.moveToElement(cr.options1()).click().build().perform();
 			build.moveToElement(cr.clickShortlist1()).click().build().perform();
-		/*//div[text()=" 10 Most Liked Ideas "]
-		 * cr.options1().click(); cr.clickShortlist1().click();
-		driver.switchTo().alert().accept();
-		 * driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
-		 * cr.clickShortlisted1().click(); cr.clickEvaluate1().click(); Actions build =
-		 * new Actions(driver);
-		 * 
-		 * String path1
-		 * ="//div[text()='Expert Review Evaluation']/parent::div/parent::div/parent::ite-modal/child::div[2]/child::ite-evaluation-rating/child::ite-rating-comments/child::div/child::div[2]/child::div[1]/child::div["
-		 * ; String path2 = "]/child::div[1]/child::div[1]/child::div["; String path3 =
-		 * "]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]" ; for (int i
-		 * = 1 ; i <=10 ; i++)
-		 * 
-		 * {
-		 * 
-		 * for (int j =1 ; j<=2 ; j++) {
-		 * 
-		 * try {
-		 * 
-		 * 
-		 * WebDriverWait wait=new WebDriverWait(driver, 20);
-		 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path1+i+
-		 * path2+j+path3)));
-		 * 
-		 * build.moveToElement(driver.findElement(By.xpath(path1+i+path2+j+path3))).
-		 * click().build().perform(); } catch(Exception e) { System.out.println(e); }
-		 * 
-		 * }
-		 * 
-		 * }
-		 * 
-		 * 
-		 * build.moveToElement(cr.clickupdate()).click().build().perform();
-		 */
+		
+		  cr.options1().click(); cr.clickShortlist1().click();
+
+		  driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		  //cr.clickShortlisted1().click(); cr.clickEvaluate1().click();
+		  
+		  build.moveToElement(cr.clickShortlisted("1")).click().build().perform();
+		
+		cr.clickEvaluate1().click();
+		  
+		   for (int i = 1 ; i <=10 ; i++)
+		  
+		  { 
+		   for (int j =1 ; j<=2 ; j++) {
+		  
+		  try {
+		  
+		  
+		  WebDriverWait wait=new WebDriverWait(driver, 20);
+		  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path1+i+
+		  path2+j+path3)));
+		  
+		  build.moveToElement(driver.findElement(By.xpath(path1+i+path2+j+path3))).
+		  click().build().perform(); } catch(Exception e) { System.out.println(e); }
+		  
+		  }
+		  
+		  }
+		  
+		  
+		  build.moveToElement(cr.clickupdate()).click().build().perform();
+		 
 		 
 		 //-----------------------------------------------------------------------------------
 //		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
