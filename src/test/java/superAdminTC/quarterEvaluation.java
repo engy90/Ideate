@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import superAdminTC.Login;
 
+import org.apache.hc.core5.util.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -67,10 +68,15 @@ public class quarterEvaluation extends base {
 		 String path3 ="]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]";
 		 
 		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			cr.options2().click();
-			cr.clickShortlist2().click();
+			cr.options1().click();
+			cr.clickShortlist1().click();
 			driver.switchTo().alert().accept();
-		/*
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			build.moveToElement(driver.findElement(By.xpath("//div[text()=' 10 Most Liked Ideas ']"))).build().perform();
+			//driver.wait(Timeout.ofSeconds(5), 5);
+			build.moveToElement(cr.options1()).click().build().perform();
+			build.moveToElement(cr.clickShortlist1()).click().build().perform();
+		/*//div[text()=" 10 Most Liked Ideas "]
 		 * cr.options1().click(); cr.clickShortlist1().click();
 		driver.switchTo().alert().accept();
 		 * driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);

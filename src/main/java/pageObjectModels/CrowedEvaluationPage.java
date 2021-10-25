@@ -43,10 +43,10 @@ public class CrowedEvaluationPage {
 	
 	public WebElement options1() 
 	{
-		/*
-		 * WebDriverWait wait=new WebDriverWait(driver, 30);
-		 * wait.until(ExpectedConditions.visibilityOfElementLocated(shortlist2));
-		 */		return driver.findElement(cardOptions1);
+		
+		 WebDriverWait wait=new WebDriverWait(driver, 30);
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(cardOptions1));
+		 		return driver.findElement(cardOptions1);
 	}
 
 	public WebElement options2() 
