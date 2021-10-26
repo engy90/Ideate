@@ -158,6 +158,40 @@ public class base {
 	
 	}
 	
+	public String getActiveQuarter() throws SQLException, ClassNotFoundException
+	
+	{
+		
+		String dbURL="jdbc:oracle:thin:@//OQ-IDEATE-QA:1521/ORA12C" ;
+		String userName = "OQ_IDEATE";
+		String password = "oq_ideate";
+		Connection con = DriverManager.getConnection(dbURL,userName,password);
+		 Class.forName("oracle.jdbc.driver.OracleDriver");
+		Statement state = con.createStatement();
+		if (prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
+		 {
+			 
+			String quarterID = prop2.getProperty("activequarter");
+			
+			ResultSet re= state.executeQuery(quarterID);
+			 re.next();
+				 String id = re.getString(1);
+				 System.out.println(id);
+		return id ;
+		 }
+		else
+		{
+			String quarterID = prop2.getProperty("activequarter");
+		     ResultSet re= state.executeQuery(quarterID);
+			 re.next();
+				 String id = re.getString(1);
+				 System.out.println(id);
+		return id ;
+		}
+		
+	}
+
+	
 	public String resetQuarter() throws SQLException, ClassNotFoundException
 	{
 		String dbURL="jdbc:oracle:thin:@//OQ-IDEATE-QA:1521/ORA12C" ;

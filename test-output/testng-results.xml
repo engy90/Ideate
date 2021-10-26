@@ -2,47 +2,26 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="23749" started-at="2021-10-25T01:15:58 EET" finished-at="2021-10-25T01:16:22 EET">
+  <suite name="Default suite" duration-ms="90199" started-at="2021-10-26T23:54:38 EET" finished-at="2021-10-26T23:56:08 EET">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="23749" started-at="2021-10-25T01:15:58 EET" finished-at="2021-10-25T01:16:22 EET">
-      <class name="superAdminTC.quarterEvaluation">
-        <test-method status="PASS" signature="tearup()[pri:0, instance:superAdminTC.quarterEvaluation@10a035a0]" name="tearup" is-config="true" duration-ms="23057" started-at="2021-10-25T01:15:58 EET" finished-at="2021-10-25T01:16:21 EET">
+    <test name="Default test" duration-ms="90199" started-at="2021-10-26T23:54:38 EET" finished-at="2021-10-26T23:56:08 EET">
+      <class name="superAdminTC.winningPodiumStage">
+        <test-method status="PASS" signature="tearup()[pri:0, instance:superAdminTC.winningPodiumStage@10a035a0]" name="tearup" is-config="true" duration-ms="27892" started-at="2021-10-26T23:54:38 EET" finished-at="2021-10-26T23:55:06 EET">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearup -->
-        <test-method status="FAIL" signature="employeeLogin()[pri:0, instance:superAdminTC.quarterEvaluation@10a035a0]" name="employeeLogin" duration-ms="643" started-at="2021-10-25T01:16:21 EET" finished-at="2021-10-25T01:16:22 EET">
-          <exception class="org.openqa.selenium.ElementNotInteractableException">
+        <test-method status="FAIL" signature="committeeEvaluation()[pri:0, instance:superAdminTC.winningPodiumStage@10a035a0]" name="committeeEvaluation" duration-ms="62251" started-at="2021-10-26T23:55:06 EET" finished-at="2021-10-26T23:56:08 EET">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[element not interactable: [object HTMLButtonElement] has no size and location
-  (Session info: chrome=95.0.4638.54)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ENGY', ip: '128.227.250.101', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_302'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 95.0.4638.54, chrome: {chromedriverVersion: 95.0.4638.17 (a9d0719444d4b..., userDataDir: C:\Users\ENGY~1.MOG\AppData...}, goog:chromeOptions: {debuggerAddress: localhost:53994}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 1ad1480abc17b2f855a224c5c30550e3]]>
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //div[text()=' Top 10 Scored Idea ']/parent::div/child::div[2]/child::div[1]/child::div[3]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i (tried for 30 second(s) with 500 milliseconds interval)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementNotInteractableException: element not interactable: [object HTMLButtonElement] has no size and location
-  (Session info: chrome=95.0.4638.54)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ENGY', ip: '128.227.250.101', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_302'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 95.0.4638.54, chrome: {chromedriverVersion: 95.0.4638.17 (a9d0719444d4b..., userDataDir: C:\Users\ENGY~1.MOG\AppData...}, goog:chromeOptions: {debuggerAddress: localhost:53994}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 1ad1480abc17b2f855a224c5c30550e3
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:618)
-at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:639)
-at superAdminTC.quarterEvaluation.employeeLogin(quarterEvaluation.java:77)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //div[text()=' Top 10 Scored Idea ']/parent::div/child::div[2]/child::div[1]/child::div[3]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i (tried for 30 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at pageObjectModels.WinningPodiumPage.clickShortlisted(WinningPodiumPage.java:37)
+at superAdminTC.winningPodiumStage.committeeEvaluation(winningPodiumStage.java:77)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -71,17 +50,44 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[text()=' Top 10 Scored Idea ']/parent::div/child::div[2]/child::div[1]/child::div[3]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i"}
+  (Session info: chrome=95.0.4638.54)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ENGY', ip: '128.227.250.101', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_302'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 95.0.4638.54, chrome: {chromedriverVersion: 95.0.4638.17 (a9d0719444d4b..., userDataDir: C:\Users\ENGY~1.MOG\AppData...}, goog:chromeOptions: {debuggerAddress: localhost:65218}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: a94c28a2842260c725949bb15d13522f
+*** Element info: {Using=xpath, value=//div[text()=' Top 10 Scored Idea ']/parent::div/child::div[2]/child::div[1]/child::div[3]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 30 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementNotInteractableException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- employeeLogin -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:superAdminTC.quarterEvaluation@10a035a0]" name="teardown" is-config="true" duration-ms="0" started-at="2021-10-25T01:16:22 EET" finished-at="2021-10-25T01:16:22 EET">
+        </test-method> <!-- committeeEvaluation -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:superAdminTC.winningPodiumStage@10a035a0]" name="teardown" is-config="true" duration-ms="0" started-at="2021-10-26T23:56:08 EET" finished-at="2021-10-26T23:56:08 EET">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- superAdminTC.quarterEvaluation -->
+      </class> <!-- superAdminTC.winningPodiumStage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

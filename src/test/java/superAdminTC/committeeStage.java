@@ -24,7 +24,7 @@ import pageObjectModels.HomePageEmployee;
 import pageObjectModels.LoginPage;
 import resources1.base;
 
-public class quarterEvaluation extends base {
+public class committeeStage extends base {
 
 
 	@BeforeTest
@@ -53,8 +53,8 @@ public class quarterEvaluation extends base {
 		login.insertEmail().sendKeys(st[0]);
 		login.insertpass().sendKeys(st[1]);
 		login.loginbtn().click();
-		String id  =  resetQuarter();
-		String url = prop2.getProperty("evaluationurl")+id+"/expert-review";
+		String id  =  getActiveQuarter();
+		String url = prop2.getProperty("evaluationurl")+id+"/selection-committee";
 		driver.manage().window().maximize(); 
 		driver.get(url);
 
@@ -63,50 +63,28 @@ public class quarterEvaluation extends base {
 
 
 	@Test
-	public   void employeeLogin() throws IOException
+	public   void committeeEvaluation() throws IOException
 	{
 		CrowedEvaluationPage cr = new CrowedEvaluationPage(driver) ;
 		 Actions build = new Actions(driver);
 		 
-		 String path1 ="//div[text()='Expert Review Evaluation']/parent::div/parent::div/parent::ite-modal/child::div[2]/child::ite-evaluation-rating/child::ite-rating-comments/child::div/child::div[2]/child::div[1]/child::div[";
+		 String path1 ="//div[@class=\"rating-comments__parameters ng-tns-c161-0\"]/child::div[1]/child::div[";
 		 String path2 = "]/child::div[1]/child::div[1]/child::div["; 
 		 String path3 ="]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]";
-		 
-		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			cr.options1().click();
-			cr.clickShortlist1().click();
-			driver.switchTo().alert().accept();
-			
-			build.moveToElement(cr.options2()).click().build().perform();
-			build.moveToElement(cr.clickShortlist2()).click().build().perform();
-			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			driver.navigate().refresh();
-			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			build.moveToElement(cr.options1()).click().build().perform();
-			build.moveToElement(cr.clickShortlist1()).click().build().perform();
 		
-		 // cr.options1().click(); cr.clickShortlist1().click();
-
-		 // driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
-		  //cr.clickShortlisted1().click(); cr.clickEvaluate1().click();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			driver.navigate().refresh();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			
-			
+/*____________Committee stage____________*/
+		 
 		  for (int q =1;q<=3;q++)
 		  {
-			  
+			 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			  build.moveToElement(cr.clickShortlisted(q)).click().build().perform();
-				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-
-			  build.moveToElement(cr.clickEvaluate1(q)).click().build().perform();
+			  build.moveToElement(cr.clickEvaluateCommittee(q)).click().build().perform();
 			
 			  
-		   for (int i = 1 ; i <=5 ; i++)
+		   for (int i = 1 ; i <=6 ; i++)
 		  
 		  { 
-		   for (int j =1 ; j<2 ; j++) {
+		   for (int j =1 ; j<=4 ; j++) {
 		  
 		  try {
 		  
@@ -116,29 +94,27 @@ public class quarterEvaluation extends base {
 		  path2+j+path3)));
 		  
 		  build.moveToElement(driver.findElement(By.xpath(path1+i+path2+j+path3))).
-		  click().build().perform(); } 
-		  
-		  catch(Exception e) { System.out.println(e); }
+		  click().build().perform(); } catch(Exception e) { System.out.println(e); }
 		  
 		  }
 		  
 		  }
 		  
-		  
-		  build.moveToElement(cr.clicksaveparam()).click().build().perform();
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			driver.navigate().refresh();
-			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			  
 
-           
+		  build.moveToElement(cr.clicksaveparam()).click().build().perform();
+		//	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			driver.navigate().refresh();
+		//	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
 		  }
-		  build.moveToElement(cr.clickUpdate()).click().build().perform();
+		  driver.navigate().refresh();
+		  
+		  build.moveToElement(cr.clickUpdateCommittee()).click().build().perform();
 		  build.moveToElement(cr.moveToNextStage()).click().build().perform();
 		  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-
-		  
 		
+
 		}
 
 	@AfterTest
