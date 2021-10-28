@@ -1,33 +1,22 @@
-package superAdminTC;
+package superAdmin_ChallengeCreation;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-import superAdminTC.Login;
-
-import org.apache.hc.core5.util.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import pageObjectModels.CrowedEvaluationPage;
-import pageObjectModels.HomePageEmployee;
 import pageObjectModels.LoginPage;
 import pageObjectModels.WinningPodiumPage;
 import resources1.base;
 
-public class winningPodiumStage extends base {
-
-
+public class CreateChallenge extends base {
+	
+	
 	@BeforeTest
 	public void tearup() throws IOException, ClassNotFoundException, SQLException
 
@@ -55,7 +44,7 @@ public class winningPodiumStage extends base {
 		login.insertpass().sendKeys(st[1]);
 		login.loginbtn().click();
 		String id  =  getActiveQuarter();
-		String url = prop2.getProperty("evaluationurl")+id+"/winning-podium";
+		String url = prop2.getProperty("addnewchallenge");
 		driver.manage().window().maximize(); 
 		driver.get(url);
 

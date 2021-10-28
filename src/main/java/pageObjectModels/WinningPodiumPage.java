@@ -4,9 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 public class WinningPodiumPage {
 
@@ -33,8 +35,14 @@ public class WinningPodiumPage {
 	
 	public WebElement clickShortlisted(int z) 
 	{
-		WebDriverWait wait=new WebDriverWait(driver, 30);
-		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(options1+z+options2)));
+		Wait<WebDriver> wait = new FluentWait<>(driver)
+		        .pollingEvery(Duration.ofMillis(100))
+		        .withTimeout(Duration.ofSeconds(30));
+		        
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(options1+z+options2)));
+		
+	
+		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(options1+z+options2)));
 		 System.out.println(options1+z+options2);
 		return driver.findElement(By.xpath(options1+z+options2));
 		
