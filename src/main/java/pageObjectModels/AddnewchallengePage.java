@@ -17,8 +17,8 @@ public class AddnewchallengePage {
 	
 	By challengeName = By.xpath("//input[@placeholder='Challenge name']");
 	By challengedesc = By.xpath("//div[@lang='en']/parent::div");
-	
-	
+	By calenderIcon= By.xpath("//i[@class='icon-calendar']");
+	By todayDay = By.xpath("//div[@class='ngb-dp-day ngb-dp-today']/div[text()='28']");
    
 	public AddnewchallengePage(WebDriver driver2) {
 		// TODO Auto-generated constructor stub
