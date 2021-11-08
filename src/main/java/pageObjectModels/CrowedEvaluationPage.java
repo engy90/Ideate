@@ -44,6 +44,7 @@ public class CrowedEvaluationPage {
 	By updateBtnCommittee = By.xpath("//button[text()='Update phase']");
 	
 	By nextStage = By.xpath("//button[@type='submit']");
+	
 	public CrowedEvaluationPage(WebDriver driver2) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver2 ; 

@@ -1,5 +1,7 @@
 package pageObjectModels;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,6 +33,7 @@ public WebElement getLoginText()
 	public WebElement insertEmail ()
 	
 	{
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver.findElement(emailid);
 		
 	}
@@ -39,6 +42,8 @@ public WebElement getLoginText()
 public WebElement insertpass ()
 	
 	{
+	
+	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver.findElement(password);
 		
 	}
@@ -46,20 +51,20 @@ public WebElement insertpass ()
 
 public WebElement register ()
 
-{
+{ driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	return driver.findElement(forgetPass);
 	
 }
 
 public WebElement forgetPass ()
 
-{
+{ driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	return driver.findElement(register);
 	
 }
 public WebElement loginbtn ()
 
-{
+{ driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	return driver.findElement(loginbtn);
 	
 }

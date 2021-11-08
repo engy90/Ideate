@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="41476" started-at="2021-10-27T11:04:46 EET" finished-at="2021-10-27T11:05:28 EET">
+  <suite started-at="2021-11-08T22:36:42 EET" name="Default suite" finished-at="2021-11-08T22:36:58 EET" duration-ms="15301">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="41476" started-at="2021-10-27T11:04:46 EET" finished-at="2021-10-27T11:05:28 EET">
-      <class name="superAdminTC.winningPodiumStage">
-        <test-method status="PASS" signature="tearup()[pri:0, instance:superAdminTC.winningPodiumStage@10a035a0]" name="tearup" is-config="true" duration-ms="34575" started-at="2021-10-27T11:04:46 EET" finished-at="2021-10-27T11:05:21 EET">
+    <test started-at="2021-11-08T22:36:42 EET" name="Default test" finished-at="2021-11-08T22:36:58 EET" duration-ms="15301">
+      <class name="employeeTC.AddIdeaToChallenge">
+        <test-method signature="addIdea()[pri:0, instance:employeeTC.AddIdeaToChallenge@6a192cfe]" started-at="2021-11-08T22:36:42 EET" name="addIdea" finished-at="2021-11-08T22:36:58 EET" duration-ms="15263" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearup -->
-        <test-method status="PASS" signature="committeeEvaluation()[pri:0, instance:superAdminTC.winningPodiumStage@10a035a0]" name="committeeEvaluation" duration-ms="6841" started-at="2021-10-27T11:05:21 EET" finished-at="2021-10-27T11:05:28 EET">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- committeeEvaluation -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:superAdminTC.winningPodiumStage@10a035a0]" name="teardown" is-config="true" duration-ms="0" started-at="2021-10-27T11:05:28 EET" finished-at="2021-10-27T11:05:28 EET">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- superAdminTC.winningPodiumStage -->
+        </test-method> <!-- addIdea -->
+      </class> <!-- employeeTC.AddIdeaToChallenge -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

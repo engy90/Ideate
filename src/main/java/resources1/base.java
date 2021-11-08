@@ -21,7 +21,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-		
+import org.testng.Assert;
+
+import pageObjectModels.HomePageEmployee;
+import pageObjectModels.LoginPage;
+
 import  java.sql.Connection;		
 import  java.sql.Statement;		
 import  java.sql.ResultSet;		
@@ -38,15 +42,15 @@ public class base {
 	{
 		
 		 prop1 = new Properties () ; 
-		FileInputStream fis = new FileInputStream("C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\resources1\\data.properties");
+		FileInputStream fis = new FileInputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\data.properties");
 		prop1.load(fis);
 		
 		 prop2 = new Properties () ; 
-			FileInputStream fis1 = new FileInputStream("C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\resources1\\qa.properties");
+			FileInputStream fis1 = new FileInputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\qa.properties");
 			prop2.load(fis1);
 			
 			prop3 = new Properties () ; 
-			FileInputStream fis2 = new FileInputStream("C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\resources1\\uat.properties");
+			FileInputStream fis2 = new FileInputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\uat.properties");
 			prop3.load(fis2);
 			String browsertype="chrome";
 			 if (prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
@@ -55,10 +59,10 @@ public class base {
 				 if (browsertype.equalsIgnoreCase("chrome"))
 					{
 						System.out.println(browsertype);
-						System.setProperty("webdriver.chrome.driver", "C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\drivers\\chromedriver95.exe") ; 
+						System.setProperty("webdriver.chrome.driver", "C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\drivers\\chromedriver95.exe") ; 
 						 driver = new ChromeDriver() ; 
 						 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-						// driver.get(prop2.getProperty("url"));
+						driver.get(prop2.getProperty("url"));
 						 return driver;
 					}
 					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -69,9 +73,10 @@ public class base {
 				 if (browsertype.equalsIgnoreCase("chrome"))
 					{
 						System.out.println(browsertype);
-						System.setProperty("webdriver.chrome.driver", "D:\\automation\\chromedriver\\chromedriver.exe") ; 
+						System.setProperty("webdriver.chrome.driver", "C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\drivers\\chromedriver95.exe") ; 
 						 driver = new ChromeDriver() ; 
 						 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+						 driver.get(prop3.getProperty("url"));
 						 return driver;
 					}
 					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -80,6 +85,9 @@ public class base {
 		return driver; 
 
 	}
+	
+	
+	
 	public String[] date ()
 	{
 
@@ -100,6 +108,25 @@ public class base {
 		String[] datearray = new String[]{date1,date2, time};
 		
 		return datearray;
+	}
+	
+	public String currentDate ()
+	{
+
+		Date da=java.util.Calendar.getInstance().getTime();
+		String date = da.toString();
+		System.out.println(date);
+		
+	     String[] st = date.split("\\s");
+	
+	    // String date1 = st[0].replaceAll("\\s","");
+		System.out.println(st[2]);
+		
+		String[] number = st[2].split("0");
+		
+		System.out.println(number[1]);
+		
+		return number[1];
 	}
 	
 	public String screenshot(String testCasename, WebDriver driver) throws IOException
@@ -191,6 +218,39 @@ public class base {
 		
 	}
 
+public String getActivechallenge() throws SQLException, ClassNotFoundException
+	
+	{
+		
+		String dbURL="jdbc:oracle:thin:@//OQ-IDEATE-QA:1521/ORA12C" ;
+		String userName = "OQ_IDEATE";
+		String password = "oq_ideate";
+		Connection con = DriverManager.getConnection(dbURL,userName,password);
+		 Class.forName("oracle.jdbc.driver.OracleDriver");
+		Statement state = con.createStatement();
+		if (prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
+		 {
+			 
+			String quarterID = prop2.getProperty("activechallenge");
+			
+			ResultSet re= state.executeQuery(quarterID);
+			 re.next();
+				 String id = re.getString(1);
+				 System.out.println(id);
+		return id ;
+		 }
+		else
+		{
+			String quarterID = prop2.getProperty("activechallenge");
+		     ResultSet re= state.executeQuery(quarterID);
+			 re.next();
+				 String id = re.getString(1);
+				 System.out.println(id);
+		return id ;
+		}
+		
+	}
+
 	
 	public String resetQuarter() throws SQLException, ClassNotFoundException
 	{
@@ -270,11 +330,11 @@ public class base {
 		FileInputStream fis =null;
 		if(prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
 		{
-			fis=  new FileInputStream("C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\resources1\\testdataQA.xlsx") ;
+			fis=  new FileInputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataQA.xlsx") ;
 		}
 		else
 		{
-			fis=  new FileInputStream("C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\resources1\\testdataUAT.xlsx") ;
+			fis=  new FileInputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataUAT.xlsx") ;
 
 		}		
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
@@ -310,11 +370,11 @@ public class base {
 		FileOutputStream fos =null;
 		if(prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
 		{
-			fos=  new FileOutputStream("C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\resources1\\testdataQA.xlsx") ;
+			fos=  new FileOutputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataQA.xlsx") ;
 		}
 		else
 		{
-			fos=  new FileOutputStream("C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\resources1\\testdataUAT.xlsx") ;
+			fos=  new FileOutputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataUAT.xlsx") ;
 
 		}
 		//FileOutputStream fos = new FileOutputStream("C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\resources1\\testdata.xlsx");
@@ -334,11 +394,11 @@ public class base {
 		FileInputStream fis =null;
 		if(prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
 		{
-			fis=  new FileInputStream("C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\resources1\\testdataQA.xlsx") ;
+			fis=  new FileInputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataQA.xlsx") ;
 		}
 		else
 		{
-			fis=  new FileInputStream("C:\\Users\\Engy.Moghazy\\eclipse-workspace2forGIT\\Ideate\\src\\main\\java\\resources1\\testdataUAT.xlsx") ;
+			fis=  new FileInputStream("C:\\Users\\ihuser\\gitIdeate\\src\\main\\java\\resources1\\testdataUAT.xlsx") ;
 
 		}
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
@@ -387,9 +447,16 @@ public class base {
 	
 	public String[] login(String usertype) throws IOException
 	{
+		LoginPage login = new LoginPage(driver) ; 
+		HomePageEmployee home = new HomePageEmployee(driver);
 		String[] st = new String[2] ; 
 		String usertype1 =usertype; 
 		st = testdataread(usertype1);
+		//login.insertEmail().sendKeys(st[0]);
+		//login.insertpass().sendKeys(st[1]);
+		//login.loginbtn().click();
+		
+		//assertTrue(home.checkTrendingInsighs().isDisplayed());
 		return st ;
 	}
 	

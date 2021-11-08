@@ -67,14 +67,14 @@ public class winningPodiumStage extends base {
 		 Actions build = new Actions(driver);
 	
 		  for (int q =1;q<=3;q++)
-		  {
-			  
+		  {Thread.sleep(1000);
+			  build.moveToElement(driver.findElement(By.xpath("//div[text()=' Top 10 Scored Idea ']")));
 			  build.moveToElement(cr.clickShortlisted(1)).click().build().perform();
 			 build.moveToElement(cr.clickEvaluate1(1)).click().build().perform();
 				driver.navigate().refresh(); 
 				 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
-			build.moveToElement(driver.findElement(By.xpath("//div[text()=' Top 10 Scored Idea ']")));
+			
 		  }
 		  
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);

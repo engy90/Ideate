@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="employeeTC.HomeEmployee">
+      <class name="superAdminTC.winningPodiumStage">
         <methods>
-          <include name="teardown"/>
-          <include name="tearup"/>
-          <include name="homePagevalidation"/>
-        </methods>
-      </class> <!-- employeeTC.HomeEmployee -->
-      <class name="employeeTC.tempEmail">
-        <methods>
-          <include name="teardown"/>
-          <include name="tempEmailcreation"/>
-          <include name="tearup"/>
-        </methods>
-      </class> <!-- employeeTC.tempEmail -->
-      <class name="employeeTC.employeeAddIdeaTC02">
-        <methods>
-          <include name="addIdea"/>
           <include name="tearup"/>
           <include name="teardown"/>
+          <include name="committeeEvaluation"/>
         </methods>
-      </class> <!-- employeeTC.employeeAddIdeaTC02 -->
+      </class> <!-- superAdminTC.winningPodiumStage -->
+      <class name="superAdminTC.quarterEvaluation">
+        <methods>
+          <include name="tearup"/>
+          <include name="teardown"/>
+          <include name="expertReview"/>
+        </methods>
+      </class> <!-- superAdminTC.quarterEvaluation -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

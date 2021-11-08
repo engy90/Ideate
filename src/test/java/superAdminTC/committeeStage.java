@@ -9,6 +9,7 @@ import superAdminTC.Login;
 
 import org.apache.hc.core5.util.Timeout;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -63,18 +64,18 @@ public class committeeStage extends base {
 
 
 	@Test
-	public   void committeeEvaluation() throws IOException
+	public   void committeeEvaluation() throws IOException, InterruptedException
 	{
 		CrowedEvaluationPage cr = new CrowedEvaluationPage(driver) ;
 		 Actions build = new Actions(driver);
 		 
-		 String path1 ="//div[@class=\"rating-comments__parameters ng-tns-c161-0\"]/child::div[1]/child::div[";
-		 String path2 = "]/child::div[1]/child::div[1]/child::div["; 
-		 String path3 ="]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]";
+		 String path3 ="//div[@class=\"infinite-scroll-wrapper px-2 ng-tns-c162-0\"]/child::div[";
+		 String path4 = "]/div/div/child::div["; 
+		 String path5 ="]/div[2]/div/ngb-rating/span[4]";
 		
 /*____________Committee stage____________*/
 		 
-		  for (int q =1;q<=3;q++)
+		  for (int q =1;q<=1;q++)
 		  {
 			 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			  build.moveToElement(cr.clickShortlisted(q)).click().build().perform();
@@ -90,11 +91,16 @@ public class committeeStage extends base {
 		  
 		  
 		  WebDriverWait wait=new WebDriverWait(driver, 20);
-		  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path1+i+
-		  path2+j+path3)));
+		  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path3+i+path4+j+path5)));
 		  
-		  build.moveToElement(driver.findElement(By.xpath(path1+i+path2+j+path3))).
-		  click().build().perform(); } catch(Exception e) { System.out.println(e); }
+		  build.moveToElement(driver.findElement(By.xpath(path3+i+path4+j+path5))).click().build().perform();
+		  
+		  
+		  } catch(Exception e) {
+			  
+			  
+			  System.out.println(e);
+			  }
 		  
 		  }
 		  
@@ -108,7 +114,9 @@ public class committeeStage extends base {
 		//	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 		  }
-		  driver.navigate().refresh();
+		  //Thread.sleep(1000);
+			build.sendKeys(Keys.PAGE_UP).build().perform();
+			driver.navigate().refresh();
 		  
 		  build.moveToElement(cr.clickUpdateCommittee()).click().build().perform();
 		  build.moveToElement(cr.moveToNextStage()).click().build().perform();

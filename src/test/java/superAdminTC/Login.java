@@ -1,5 +1,7 @@
 package superAdminTC;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
@@ -30,13 +32,6 @@ public class Login extends base {
 		driver = initializeDriver() ; 
 		
 		
-		 if(prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa") )
-		 { driver.get(prop2.getProperty("url"));}
-		 
-		 else {
-			 driver.get(prop3.getProperty("url"));
-		 }
-		
 		 
 		 driver.manage().window().maximize();
 		
@@ -56,7 +51,7 @@ public class Login extends base {
 		login.insertEmail().sendKeys(st[0]);
 		login.insertpass().sendKeys(st[1]);
 		login.loginbtn().click();
-		Assert.assertTrue(home.checkTrendingInsighs().isDisplayed());
+		AssertJUnit.assertTrue(home.checkTrendingInsighs().isDisplayed());
 		
 	
 	}
