@@ -22,6 +22,7 @@ public class ChallengesPage {
 	
 	public WebElement clickOnChallenge ()
 	{
+		
 		return	driver.findElement(challengeTab);
 		
 	}

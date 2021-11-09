@@ -38,10 +38,11 @@ public class AddIdeaToChallenge extends base
 		login.insertpass().sendKeys(st[1]);
 		login.loginbtn().click();
 		  driver.manage().window().maximize();
+		  for (int i =1 ; i<=3 ; i++)
+		  {
 		Thread.sleep(2000);
 		  
 		Actions build = new Actions(driver);
-		//ChallengesPage chall = new ChallengesPage(driver) ;
 		build.moveToElement(chall.clickOnChallenge()).click().build().perform();
 		build.moveToElement(chall.clickOnActiveChallenge()).click().build().perform();
 		build.moveToElement(chall.clickOnAddIdea()).click().build().perform();
@@ -60,26 +61,19 @@ public class AddIdeaToChallenge extends base
 		
 		
 		new Actions(driver).moveToElement(addidea.clickAddNew()).perform();
-		
-		//Actions build = new Actions(driver);
 		build.moveToElement(addidea.clickAddNew()).moveByOffset(124, 0).click().build().perform();
 		addidea.clickAddNew();
 		addidea.clickOnArticle();
 		
-		//new Actions(driver).moveToElement(addidea.clickRE()).perform();
 		addidea.insertRE().click();
 	addidea.insertRE().sendKeys("Automated test");
 	build.moveToElement(addidea.clickTMS()).moveByOffset(124, 0).click().build().perform();
-//	addidea.clickTMS();
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	build.moveToElement(addidea.clickSectorBtoC()).moveByOffset(124, 0).click().build().perform();
-	//addidea.clickSectorBtoC();
-	
 	build.moveToElement(addidea.clickMissingSkill()).moveByOffset(124, 0).click().build().perform();
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	//addidea.clickMissingSkill();
 	build.moveToElement(addidea.selectSkillFromList()).moveByOffset(124, 0).click().build().perform();
-	//addidea.selectSkillFromList();
+
 	
 	 addidea.clickSubmitbtn();
 	AssertJUnit.assertTrue(addidea.justNow().isDisplayed());	
@@ -88,7 +82,7 @@ public class AddIdeaToChallenge extends base
 		
 		
 		
-		
+		  }	
 		
 		
 		

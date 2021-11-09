@@ -122,11 +122,12 @@ public class base {
 	    // String date1 = st[0].replaceAll("\\s","");
 		System.out.println(st[2]);
 		
-		String[] number = st[2].split("0");
+		//String[] number = st[2].split("0");
 		
-		System.out.println(number[1]);
+		//System.out.println(number[1]);
 		
-		return number[1];
+		//return number[1];
+		return st[2];
 	}
 	
 	public String screenshot(String testCasename, WebDriver driver) throws IOException

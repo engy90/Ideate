@@ -13,6 +13,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import employeeTC.AddIdeaToChallenge;
 import pageObjectModels.AddnewchallengePage;
 import pageObjectModels.HomePageEmployee;
 import pageObjectModels.LoginPage;
@@ -47,7 +48,7 @@ public class CreateChallenge extends base {
 	}
 	
 	@Test(priority=0)
-	public void newChallenge() throws IOException
+	public void addnewChallenge() throws IOException
 	{
 		AddnewchallengePage add = new AddnewchallengePage(driver) ;
 		 Actions build = new Actions(driver);
@@ -68,10 +69,7 @@ public class CreateChallenge extends base {
 	     build.moveToElement(add.clickSkills()).click().build().perform();
 	     build.moveToElement(add.clickAnalyze()).click().build().perform();
 	     build.moveToElement(add.clickSaveBtn()).click().build().perform();
-	    //String url=  driver.getCurrentUrl();
-	   // String url = "https://qa.ideate.ooredoo.com/challenges/challenge/192/idea-submission";
-		//String[] urls = url.split("/");
-		//System.out.println(urls[5]);
+	  
 
 		 WebDriverWait wait=new WebDriverWait(driver, 40);
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//small[text()=' Idea Submission in progress ']")));
@@ -79,29 +77,18 @@ public class CreateChallenge extends base {
 		   url=  driver.getCurrentUrl();
 		 
 		}
-@Test(priority=1)
-public void employeeaddidea() throws IOException, InterruptedException, ClassNotFoundException, SQLException
-{
-	
-       driver1=  initializeDriver() ; 
-       LoginPage login = new LoginPage(driver1) ; 
-		HomePageEmployee home = new HomePageEmployee(driver1);
-		String usertype = "employee";
-		String[] st = new String[2] ;  
-		st= login(usertype);
-		
-		login.insertEmail().sendKeys(st[0]);
-		login.insertpass().sendKeys(st[1]);
-		login.loginbtn().click();
-		Thread.sleep(2000);
-		//String id =getActivechallenge();
-		String url1= "https://qa.ideate.ooredoo.com/add-new?addTo=challenge";
-	driver1.get(url1);
+      @Test(priority=1)
+    public void employeeaddidea() throws IOException, InterruptedException, ClassNotFoundException, SQLException
+    {
 	
 	
-
+	AddIdeaToChallenge test = new AddIdeaToChallenge();
+	test.addIdea();
+      
 
 }
+      
+      
 	@AfterTest
 	public void teardown()
 	{
