@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="employeeTC.AddIdeaToChallenge">
+      <class name="superAdmin_ChallengeCreation.CreateChallenge">
         <methods>
-          <include name="addIdea"/>
+          <include name="tearup"/>
+          <include name="employeeaddidea"/>
+          <include name="teardown"/>
         </methods>
-      </class> <!-- employeeTC.AddIdeaToChallenge -->
+      </class> <!-- superAdmin_ChallengeCreation.CreateChallenge -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
