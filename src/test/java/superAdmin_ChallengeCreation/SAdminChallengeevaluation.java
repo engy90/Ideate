@@ -1,11 +1,15 @@
 package superAdmin_ChallengeCreation;
 
-import static org.junit.Assert.assertTrue;
-
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import static org.testng.AssertJUnit.assertTrue;
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +29,7 @@ import pageObjectModels.HomePageEmployee;
 import pageObjectModels.LoginPage;
 import pageObjectModels.WinningPodiumPage;
 import resources1.base;
+import superAdminTC.Login;
 
 public class SAdminChallengeevaluation extends base {
 	
@@ -32,10 +37,11 @@ public class SAdminChallengeevaluation extends base {
 	public WebDriver driver ;
 	public WebDriver driver1 ;
 	public String url ; 
+	private static Logger log = LogManager.getLogger(SAdminChallengeevaluation.class.getName()) ;
 
-	@BeforeTest
-	public void tearup() throws IOException, InterruptedException
-	{  
+	@Test
+	public void evaluation() throws IOException, InterruptedException
+	{
 	     
 		 driver = initializeDriver() ; 
 		
@@ -54,17 +60,12 @@ public class SAdminChallengeevaluation extends base {
 		
 		ChallengesPage chall = new ChallengesPage(driver) ;
 		  Actions build = new Actions(driver);
+		  build.moveToElement(chall.clickOnChallenge());
 		build.moveToElement(chall.clickOnChallenge()).click().build().perform();
 		build.sendKeys(Keys.PAGE_DOWN).build().perform();
 		build.sendKeys(Keys.PAGE_DOWN).build().perform();
 		Thread.sleep(2000);
 		build.moveToElement(chall.clickOnActiveChallenge()).click().build().perform();
-		
-	
-	}
-	@Test(priority=0)
-	public void addnewChallenge() throws IOException, InterruptedException
-	{Actions build = new Actions(driver);
 		ChallengeEvaluationpage challenge = new ChallengeEvaluationpage(driver);
 		Thread.sleep(2000);
 		build.moveToElement(challenge.clickOnUpdate()).click().build().perform();
@@ -86,13 +87,18 @@ public class SAdminChallengeevaluation extends base {
 		
 		
 		driver.navigate().refresh();
-		Thread.sleep(2000);
-		build.moveToElement(cr.options1());
+		build.sendKeys(Keys.PAGE_DOWN).build().perform();
+		build.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(3000);
+		build.moveToElement(cr.options1()).build().perform();
 		build.moveToElement(cr.options1()).click().build().perform();
 		build.moveToElement(cr.clickShortlist1()).click().build().perform();
 		driver.navigate().refresh();
-		Thread.sleep(2000);
-		build.moveToElement(cr.options1());
+		
+		build.sendKeys(Keys.PAGE_DOWN).build().perform();
+		build.sendKeys(Keys.PAGE_DOWN).build().perform();
+		Thread.sleep(4000);
+		build.moveToElement(cr.options1()).build().perform();
 		build.moveToElement(cr.options1()).click().build().perform();
 		build.moveToElement(cr.clickShortlist1()).click().build().perform();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -158,25 +164,25 @@ public class SAdminChallengeevaluation extends base {
 		
 		// driver.navigate().refresh();
 		 
-		  for (int q =1;q<=3;q++)
+		 for (int q =1;q<=3;q++)
 		  {
 			 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			 driver.navigate().refresh();
-			  build2.moveToElement(cr.clickShortlisted(q)).click().build().perform();
-			  build2.moveToElement(cr.clickEvaluateCommittee(q)).click().build().perform();
+			  build.moveToElement(cr.clickShortlisted(q)).click().build().perform();
+			  build.moveToElement(cr.clickEvaluateCommittee(q)).click().build().perform();
 			
 			  
 		   for (int i = 1 ; i <=6 ; i++)
 		  
 		  { 
-			   
+			  // build.sendKeys(Keys.PAGE_DOWN).build().perform();
 			   
 		   for (int j =1 ; j<=4 ; j++) {
 		  
 		  try {
 		  
-		  
-		  WebDriverWait wait=new WebDriverWait(driver, 20);
+			
+		  WebDriverWait wait=new WebDriverWait(driver, 5);
 		  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path4+i+path5+j+path6)));
 		  build.moveToElement(driver.findElement(By.xpath(path4+i+path5+j+path6)));
 		  build.moveToElement(driver.findElement(By.xpath(path4+i+path5+j+path6))).click().build().perform();
@@ -201,6 +207,8 @@ public class SAdminChallengeevaluation extends base {
 
 		  }
 		  //Thread.sleep(1000);
+		  
+		  
 			build.sendKeys(Keys.PAGE_UP).build().perform();
 			build.sendKeys(Keys.PAGE_UP).build().perform();
 
@@ -209,16 +217,16 @@ public class SAdminChallengeevaluation extends base {
 			build.moveToElement(challenge.clickOnUpdatephase()).click().build().perform();
 		  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		  Thread.sleep(1000);
-               //______Winning Podium__________________
+              //______Winning Podium__________________
 		  
 		  WinningPodiumPage cr1 = new WinningPodiumPage(driver) ;
 			 //Actions build = new Actions(driver);
 		
 		  for (int q =1;q<=3;q++)
-			  driver.navigate().refresh(); 
+			 
 		  
-		  {
-				build.sendKeys(Keys.PAGE_DOWN).build().perform();
+		  { driver.navigate().refresh(); 
+				//build.sendKeys(Keys.PAGE_DOWN).build().perform();
 				build.sendKeys(Keys.PAGE_DOWN).build().perform();
 			  
 			  Thread.sleep(1000);
@@ -239,7 +247,7 @@ public class SAdminChallengeevaluation extends base {
 			build.moveToElement(challenge.clickOnUpdate()).click().build().perform();
 			build.moveToElement(challenge.clickOnannounceClose()).click().build().perform();
 		  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		  assertTrue(challenge.CheckWinnerAnnouncedText().isDisplayed()) ;
+		  AssertJUnit.assertTrue(challenge.CheckWinnerAnnouncedText().isDisplayed()) ;
 		  System.out.println("Winners are announced successfully");
 }
 

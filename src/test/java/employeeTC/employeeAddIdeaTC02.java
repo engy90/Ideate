@@ -2,6 +2,8 @@ package employeeTC;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -30,7 +32,7 @@ public class employeeAddIdeaTC02 extends base {
 	
 public WebDriver driver ;
 	
-	private static Logger log = LogManager.getLogger(Login.class.getName()) ;
+	private static Logger log = LogManager.getLogger(employeeAddIdeaTC02.class.getName()) ;
 
 	@BeforeTest
 	public void tearup() throws IOException

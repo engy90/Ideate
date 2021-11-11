@@ -2,6 +2,8 @@ package employeeTC;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -9,6 +11,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -27,12 +31,9 @@ import resources1.base;
 
 public class registration extends base  {
 	
-	
-	
-	
-	
 public WebDriver driver ;
-	
+private static Logger log = LogManager.getLogger(registration.class.getName()) ;
+
 	@BeforeTest
 	public void tearup() throws IOException, InterruptedException
 	
@@ -118,7 +119,7 @@ public WebDriver driver ;
 			
 			testDatasheetwrite(email1,Password);
 			
-			Assert.assertTrue(home.brandCheck().isDisplayed());
+			AssertJUnit.assertTrue(home.brandCheck().isDisplayed());
 	}
 	
 	

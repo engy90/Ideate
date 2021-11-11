@@ -1,5 +1,7 @@
 package superAdminTC;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.Duration;
@@ -8,6 +10,8 @@ import java.util.concurrent.TimeUnit;
 import superAdminTC.Login;
 
 import org.apache.hc.core5.util.Timeout;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,6 +30,7 @@ import pageObjectModels.WinningPodiumPage;
 import resources1.base;
 
 public class winningPodiumStage extends base {
+	private static Logger log = LogManager.getLogger(winningPodiumStage.class.getName()) ;
 
 
 	@BeforeTest

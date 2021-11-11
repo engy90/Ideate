@@ -1,9 +1,13 @@
 package superAdmin_ChallengeCreation;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -19,13 +23,15 @@ import pageObjectModels.HomePageEmployee;
 import pageObjectModels.LoginPage;
 import pageObjectModels.WinningPodiumPage;
 import resources1.base;
+import superAdminTC.Login;
 
 public class CreateChallenge extends base {
 	
 	public WebDriver driver ;
 	public WebDriver driver1 ;
 	public String url ; 
-	
+	private static Logger log = LogManager.getLogger(CreateChallenge.class.getName()) ;
+
 	@BeforeTest
 	public void tearup() throws IOException, InterruptedException
 	{  
@@ -77,8 +83,8 @@ public class CreateChallenge extends base {
 		   url=  driver.getCurrentUrl();
 		 
 		}
-      @Test(priority=1)
-    public void employeeaddidea() throws IOException, InterruptedException, ClassNotFoundException, SQLException
+      @Test(dependsOnMethods = { "addnewChallenge" })
+       public void employeeaddidea() throws IOException, InterruptedException, ClassNotFoundException, SQLException
     {
 	
 	
@@ -87,7 +93,13 @@ public class CreateChallenge extends base {
       
 
 }
-      
+      @Test(dependsOnMethods = { "employeeaddidea" })
+      public void sAdminevaluatesIdea () throws IOException, InterruptedException 
+      {
+    	  SAdminChallengeevaluation test = new SAdminChallengeevaluation();
+    	  test.evaluation();
+    	  
+      }
       
 	@AfterTest
 	public void teardown()

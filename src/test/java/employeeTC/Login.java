@@ -1,6 +1,8 @@
 package employeeTC;
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -52,7 +54,7 @@ public WebDriver driver ;
 	}
 	
 	
-	@Test//(dataProvider="data")
+	@Test
 	
 	public   void employeeLogin() throws IOException
 	{
@@ -67,8 +69,8 @@ public WebDriver driver ;
 		login.insertEmail().sendKeys(st[0]);
 		login.insertpass().sendKeys(st[1]);
 		login.loginbtn().click();
-		Assert.assertTrue(home.checkTrendingInsighs().isDisplayed());
-		//assert.assertTrue(home.checkTrendingInsighs().isDisplayed());
+		AssertJUnit.assertTrue(home.checkTrendingInsighs().isDisplayed());
+		
 
 	}
 	

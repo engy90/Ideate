@@ -1,5 +1,7 @@
 package superAdmin_ChallengeCreation;
 
+import static org.testng.AssertJUnit.assertTrue;
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -61,7 +63,60 @@ public class test extends base {
 	public void addnewChallenge() throws IOException, InterruptedException
 	{Actions build = new Actions(driver);
 		ChallengeEvaluationpage challenge = new ChallengeEvaluationpage(driver);
+		CrowedEvaluationPage cr = new CrowedEvaluationPage(driver);
+		 String path4 ="//div[@class=\"infinite-scroll-wrapper px-2 ng-tns-c162-0\"]/child::div[";
+		 String path5 = "]/div/div/child::div["; 
+		 String path6 ="]/div[2]/div/ngb-rating/span[4]";
+		
+		// driver.navigate().refresh();
+		 
+		  for (int q =1;q<=3;q++)
+		  {
+			 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			 driver.navigate().refresh();
+			  build.moveToElement(cr.clickShortlisted(q)).click().build().perform();
+			  build.moveToElement(cr.clickEvaluateCommittee(q)).click().build().perform();
+			
+			  
+		   for (int i = 1 ; i <=6 ; i++)
+		  
+		  { 
+			  // build.sendKeys(Keys.PAGE_DOWN).build().perform();
+			   
+		   for (int j =1 ; j<=4 ; j++) {
+		  
+		  try {
+		  
+			
+		  WebDriverWait wait=new WebDriverWait(driver, 5);
+		  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path4+i+path5+j+path6)));
+		  build.moveToElement(driver.findElement(By.xpath(path4+i+path5+j+path6)));
+		  build.moveToElement(driver.findElement(By.xpath(path4+i+path5+j+path6))).click().build().perform();
+		  ///build.sendKeys(Keys.PAGE_DOWN).build().perform();
+		  
+		  } catch(Exception e) {
+			  
+			  
+			  System.out.println(e);
+			  }
+		  
+		  }
+		  
+		  }
+		  
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
+		  build.moveToElement(cr.clicksaveparam()).click().build().perform();
+		//	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			driver.navigate().refresh();
+		//	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
+		  }
+		  //Thread.sleep(1000);
+		  
+		  
+			build.sendKeys(Keys.PAGE_UP).build().perform();
+			build.sendKeys(Keys.PAGE_UP).build().perform();
 
 			build.moveToElement(challenge.clickOnUpdate());
 			build.moveToElement(challenge.clickOnUpdate()).click().build().perform();
@@ -74,10 +129,10 @@ public class test extends base {
 			 //Actions build = new Actions(driver);
 		
 		  for (int q =1;q<=3;q++)
-			  
+			 
 		  
-		  {
-				build.sendKeys(Keys.PAGE_DOWN).build().perform();
+		  { driver.navigate().refresh(); 
+				//build.sendKeys(Keys.PAGE_DOWN).build().perform();
 				build.sendKeys(Keys.PAGE_DOWN).build().perform();
 			  
 			  Thread.sleep(1000);
@@ -87,7 +142,7 @@ public class test extends base {
 			  build.moveToElement(cr1.clickShortlisted(1)).click().build().perform();
 			 build.moveToElement(cr1.clickEvaluate1(1)).click().build().perform();
 				driver.navigate().refresh(); 
-				
+				 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 			
 		  }
@@ -98,6 +153,8 @@ public class test extends base {
 			build.moveToElement(challenge.clickOnUpdate()).click().build().perform();
 			build.moveToElement(challenge.clickOnannounceClose()).click().build().perform();
 		  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		  assertTrue(challenge.CheckWinnerAnnouncedText().isDisplayed()) ;
+		  System.out.println("Winners are announced successfully");
 }
 
       

@@ -3,8 +3,16 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
+      
+     
+      <class name="employeeTC.registration"/>
+  
       <class name="superAdmin_ChallengeCreation.CreateChallenge"/>
+     
       <class name="superAdmin_ChallengeCreation.EmployeeAddIdeaToChallenge"/>
+      <class name="superAdminTC.quarterEvaluation"/>
+      
+      <class name="employeeTC.HomeEmployee"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
