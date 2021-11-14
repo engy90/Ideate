@@ -12,6 +12,13 @@
           <include name="sAdminevaluatesIdea"/>
         </methods>
       </class> <!-- superAdmin_ChallengeCreation.CreateChallenge -->
+      <class name="superAdminTC.quarterEvaluation">
+        <methods>
+          <include name="tearup"/>
+          <include name="teardown"/>
+          <include name="expertReview"/>
+        </methods>
+      </class> <!-- superAdminTC.quarterEvaluation -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

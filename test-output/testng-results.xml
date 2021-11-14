@@ -1,90 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="26387" started-at="2021-11-11T17:20:13 EET" finished-at="2021-11-11T17:20:40 EET">
+  <suite name="Suite" duration-ms="10771" started-at="2021-11-12T22:31:25 EET" finished-at="2021-11-12T22:31:35 EET">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="26387" started-at="2021-11-11T17:20:13 EET" finished-at="2021-11-11T17:20:40 EET">
-      <class name="superAdmin_ChallengeCreation.SAdminChallengeevaluation">
-        <test-method status="FAIL" signature="evaluation()[pri:0, instance:superAdmin_ChallengeCreation.SAdminChallengeevaluation@ed7f8b4]" name="evaluation" duration-ms="26348" started-at="2021-11-11T17:20:14 EET" finished-at="2021-11-11T17:20:40 EET">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//ite-challenge-card"}
-  (Session info: chrome=95.0.4638.69)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'EG-QA-ENGY', ip: '128.227.250.105', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_311'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 95.0.4638.69, chrome: {chromedriverVersion: 95.0.4638.17 (a9d0719444d4b..., userDataDir: C:\Users\ihuser\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:11355}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: a587336fc38ad7b54c75a144808298a7
-*** Element info: {Using=xpath, value=//ite-challenge-card}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//ite-challenge-card"}
-  (Session info: chrome=95.0.4638.69)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'EG-QA-ENGY', ip: '128.227.250.105', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_311'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 95.0.4638.69, chrome: {chromedriverVersion: 95.0.4638.17 (a9d0719444d4b..., userDataDir: C:\Users\ihuser\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:11355}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: a587336fc38ad7b54c75a144808298a7
-*** Element info: {Using=xpath, value=//ite-challenge-card}
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at pageObjectModels.ChallengesPage.clickOnActiveChallenge(ChallengesPage.java:32)
-at superAdmin_ChallengeCreation.SAdminChallengeevaluation.evaluation(SAdminChallengeevaluation.java:68)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+    <test name="Test" duration-ms="10771" started-at="2021-11-12T22:31:25 EET" finished-at="2021-11-12T22:31:35 EET">
+      <class name="employeeTC.HomeEmployee">
+        <test-method status="PASS" signature="tearup()[pri:0, instance:employeeTC.HomeEmployee@d554c5f]" name="tearup" is-config="true" duration-ms="6563" started-at="2021-11-12T22:31:25 EET" finished-at="2021-11-12T22:31:31 EET">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- evaluation -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:superAdmin_ChallengeCreation.SAdminChallengeevaluation@ed7f8b4]" name="teardown" is-config="true" duration-ms="1" started-at="2021-11-11T17:20:40 EET" finished-at="2021-11-11T17:20:40 EET">
+        </test-method> <!-- tearup -->
+        <test-method status="PASS" signature="homePagevalidation()[pri:0, instance:employeeTC.HomeEmployee@d554c5f]" name="homePagevalidation" duration-ms="3766" started-at="2021-11-12T22:31:31 EET" finished-at="2021-11-12T22:31:35 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- homePagevalidation -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:employeeTC.HomeEmployee@d554c5f]" name="teardown" is-config="true" duration-ms="0" started-at="2021-11-12T22:31:35 EET" finished-at="2021-11-12T22:31:35 EET">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- superAdmin_ChallengeCreation.SAdminChallengeevaluation -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- employeeTC.HomeEmployee -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

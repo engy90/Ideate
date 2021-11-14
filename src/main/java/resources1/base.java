@@ -132,11 +132,11 @@ public class base {
 	
 	public String screenshot(String testCasename, WebDriver driver) throws IOException
 	{
-		
+		String number = currentDate();
 		TakesScreenshot ts = (TakesScreenshot) driver ; 
 		File source  = ts.getScreenshotAs(OutputType.FILE);
 		
-		String distenationFile = System.getProperty("user.dir")+"\\reports\\"+ testCasename +".png" ; 
+		String distenationFile = System.getProperty("user.dir")+"\\reports\\"+ testCasename +number +".png" ; 
 		
 		FileUtils.copyFile(source,new File(distenationFile));
 		return distenationFile;

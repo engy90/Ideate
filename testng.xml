@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test">
+   <listeners>
+  <listener class-name="employeeTC.Listeners"/> </listeners>
+  <test name="Test" preserve-order="true"  parallel="false" enabled="true">
     <classes>
       
      
-      <class name="employeeTC.registration"/>
-  
-      <class name="superAdmin_ChallengeCreation.CreateChallenge"/>
-     
-      <class name="superAdmin_ChallengeCreation.EmployeeAddIdeaToChallenge"/>
-      <class name="superAdminTC.quarterEvaluation"/>
+    
       
       <class name="employeeTC.HomeEmployee"/>
     </classes>

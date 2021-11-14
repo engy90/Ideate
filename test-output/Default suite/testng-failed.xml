@@ -3,12 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="superAdmin_ChallengeCreation.SAdminChallengeevaluation">
+      <class name="superAdminTC.quarterEvaluation">
         <methods>
+          <include name="tearup"/>
           <include name="teardown"/>
-          <include name="evaluation"/>
+          <include name="expertReview"/>
         </methods>
-      </class> <!-- superAdmin_ChallengeCreation.SAdminChallengeevaluation -->
+      </class> <!-- superAdminTC.quarterEvaluation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
