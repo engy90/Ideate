@@ -15,6 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -53,13 +54,8 @@ public class committeeStage extends base {
 
 
 		String usertype = "superadmin";
-		String[] st = new String[2] ;  
-		st= login(usertype);
-		LoginPage login = new LoginPage(driver) ; 
 
-		login.insertEmail().sendKeys(st[0]);
-		login.insertpass().sendKeys(st[1]);
-		login.loginbtn().click();
+		driver=login(usertype ,driver);
 		String id  =  getActiveQuarter();
 		String url = prop2.getProperty("evaluationurl")+id+"/selection-committee";
 		driver.manage().window().maximize(); 
@@ -70,20 +66,22 @@ public class committeeStage extends base {
 
 
 	@Test
-	public   void committeeEvaluation() throws IOException, InterruptedException
+	public   void committeeEvaluation(WebDriver driver) throws IOException, InterruptedException
 	{
-		CrowedEvaluationPage cr = new CrowedEvaluationPage(driver) ;
+		//driver.navigate().refresh();
 		 Actions build = new Actions(driver);
 		 
 		 String path3 ="//div[@class=\"infinite-scroll-wrapper px-2 ng-tns-c162-0\"]/child::div[";
 		 String path4 = "]/div/div/child::div["; 
 		 String path5 ="]/div[2]/div/ngb-rating/span[4]";
+		 CrowedEvaluationPage cr = new CrowedEvaluationPage(driver) ;
+		 driver.navigate().refresh();
 		
 /*____________Committee stage____________*/
 		 
-		  for (int q =1;q<=1;q++)
+		  for (int q =1;q<=3;q++)
 		  {
-			 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			
 			  build.moveToElement(cr.clickShortlisted(q)).click().build().perform();
 			  build.moveToElement(cr.clickEvaluateCommittee(q)).click().build().perform();
 			
@@ -95,38 +93,41 @@ public class committeeStage extends base {
 		  
 		  try {
 		  
-		  
-		  WebDriverWait wait=new WebDriverWait(driver, 20);
-		  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path3+i+path4+j+path5)));
-		  
+	
+			  
+			
+		  build.moveToElement(driver.findElement(By.xpath(path3+i+path4+j+path5)));
 		  build.moveToElement(driver.findElement(By.xpath(path3+i+path4+j+path5))).click().build().perform();
-		  
+		 
 		  
 		  } catch(Exception e) {
 			  
 			  
 			  System.out.println(e);
+			  break;
 			  }
 		  
 		  }
 		  
+		  // build.sendKeys(Keys.PAGE_DOWN).build().perform();
 		  }
 		  
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 		  build.moveToElement(cr.clicksaveparam()).click().build().perform();
-		//	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		
 			driver.navigate().refresh();
-		//	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	
 
 		  }
-		  //Thread.sleep(1000);
+		 
+			build.sendKeys(Keys.PAGE_UP).build().perform();
 			build.sendKeys(Keys.PAGE_UP).build().perform();
 			driver.navigate().refresh();
 		  
 		  build.moveToElement(cr.clickUpdateCommittee()).click().build().perform();
 		  build.moveToElement(cr.moveToNextStage()).click().build().perform();
-		  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		  
 		
 
 		}

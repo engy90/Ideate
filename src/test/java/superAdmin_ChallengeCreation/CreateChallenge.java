@@ -33,23 +33,25 @@ public class CreateChallenge extends base {
 	private static Logger log = LogManager.getLogger(CreateChallenge.class.getName()) ;
 
 	@BeforeTest
-	public void tearup() throws IOException, InterruptedException
+	public void tearup() throws IOException, InterruptedException, ClassNotFoundException, SQLException
 	{  
 	     
 		 driver = initializeDriver() ; 
 		
 		driver.manage().window().maximize();
 		
+		try {
+		String id = getActivechallenge();
+		CloseActiveChlng(id);}
+		
+		catch (Exception e) {
+			System.out.println("No opened challenges");
+		}
 		LoginPage login = new LoginPage(driver) ; 
 		HomePageEmployee home = new HomePageEmployee(driver);
 		String usertype = "superadmin";
-		String[] st = new String[2] ;  
-		st= login(usertype);
-		
-		login.insertEmail().sendKeys(st[0]);
-		login.insertpass().sendKeys(st[1]);
-		login.loginbtn().click();
-		Thread.sleep(2000);
+
+		driver=login(usertype ,driver);
 		driver.get("https://qa.ideate.ooredoo.com/challenge/add-new");
 	}
 	
@@ -59,8 +61,8 @@ public class CreateChallenge extends base {
 		AddnewchallengePage add = new AddnewchallengePage(driver) ;
 		 Actions build = new Actions(driver);
 		 
-		 build.moveToElement(add.insertChallengeName()).click().sendKeys(" challenge name Challenge name Challenge name ").build().perform();
-		 build.moveToElement(add.insertChallengeDESC()).click().sendKeys("challenge name Challenge name Challenge name challenge name Challenge name Challenge name challenge name Challenge name Challenge name ").build().perform();
+		 build.moveToElement(add.insertChallengeName()).click().sendKeys(" Automated script for challenge name , this is only for automation testing ").build().perform();
+		 build.moveToElement(add.insertChallengeDESC()).click().sendKeys("Automated script for challenge name , this is only for automation testing  name challenge name Challenge name Challenge name ").build().perform();
 	     build.moveToElement(add.calenderIcon()).click().build().perform();
 	     build.moveToElement(add.clickToday()).click().build().perform();
 

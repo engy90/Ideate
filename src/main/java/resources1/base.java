@@ -1,6 +1,8 @@
 package resources1;
 
 
+import static org.testng.Assert.assertTrue;
+
 import java.io.File;
 
 import java.io.FileInputStream;
@@ -110,29 +112,22 @@ public class base {
 		return datearray;
 	}
 	
-	public String currentDate ()
+	public int currentDate ()
 	{
 
-		Date da=java.util.Calendar.getInstance().getTime();
+		Date da = java.util.Calendar.getInstance().getTime();
 		String date = da.toString();
 		System.out.println(date);
-		
-	     String[] st = date.split("\\s");
-	
-	    // String date1 = st[0].replaceAll("\\s","");
-		System.out.println(st[2]);
-		
-		//String[] number = st[2].split("0");
-		
-		//System.out.println(number[1]);
-		
-		//return number[1];
-		return st[2];
+
+		String[] st = date.split("\\s");
+        int foo = Integer.parseInt(st[2]);
+		System.out.println(foo);
+		return foo;
 	}
 	
 	public String screenshot(String testCasename, WebDriver driver) throws IOException
 	{
-		String number = currentDate();
+		int number = currentDate();
 		TakesScreenshot ts = (TakesScreenshot) driver ; 
 		File source  = ts.getScreenshotAs(OutputType.FILE);
 		
@@ -232,9 +227,9 @@ public String getActivechallenge() throws SQLException, ClassNotFoundException
 		if (prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
 		 {
 			 
-			String quarterID = prop2.getProperty("activechallenge");
+			String ChallengeID = prop2.getProperty("activechallenge");
 			
-			ResultSet re= state.executeQuery(quarterID);
+			ResultSet re= state.executeQuery(ChallengeID);
 			 re.next();
 				 String id = re.getString(1);
 				 System.out.println(id);
@@ -251,6 +246,34 @@ public String getActivechallenge() throws SQLException, ClassNotFoundException
 		}
 		
 	}
+public void  CloseActiveChlng (String id) throws ClassNotFoundException, SQLException
+{
+	
+	String dbURL="jdbc:oracle:thin:@//OQ-IDEATE-QA:1521/ORA12C" ;
+	String userName = "OQ_IDEATE";
+	String password = "oq_ideate";
+	Connection con = DriverManager.getConnection(dbURL,userName,password);
+	 Class.forName("oracle.jdbc.driver.OracleDriver");
+	Statement state = con.createStatement();
+	if (prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
+	 {
+		 
+		String closeChallenge = prop2.getProperty("closechallenge");
+		String all = closeChallenge + id ;
+		ResultSet re= state.executeQuery(all);
+		 re.next();
+		 System.out.println("closed");
+	 }
+	else
+	{
+		String closeChallenge = prop2.getProperty("closechallenge");
+		String all = closeChallenge + id ;
+	     ResultSet re= state.executeQuery(all);
+		 re.next();
+	}
+	
+}
+
 
 	
 	public String resetQuarter() throws SQLException, ClassNotFoundException
@@ -446,19 +469,19 @@ public String getActivechallenge() throws SQLException, ClassNotFoundException
 		
 	}
 	
-	public String[] login(String usertype) throws IOException
+	public WebDriver login(String usertype, WebDriver driver2) throws IOException
 	{
 		LoginPage login = new LoginPage(driver) ; 
 		HomePageEmployee home = new HomePageEmployee(driver);
 		String[] st = new String[2] ; 
 		String usertype1 =usertype; 
 		st = testdataread(usertype1);
-		//login.insertEmail().sendKeys(st[0]);
-		//login.insertpass().sendKeys(st[1]);
-		//login.loginbtn().click();
+		login.insertEmail().sendKeys(st[0]);
+		login.insertpass().sendKeys(st[1]);
+		login.loginbtn().click();
 		
-		//assertTrue(home.checkTrendingInsighs().isDisplayed());
-		return st ;
+		assertTrue(home.checkTrendingInsighs().isDisplayed());
+		return driver ;
 	}
 	
 	public WebDriver goProfileUrl(WebDriver driver)

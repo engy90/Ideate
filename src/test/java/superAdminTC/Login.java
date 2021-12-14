@@ -49,12 +49,8 @@ public class Login extends base {
 		LoginPage login = new LoginPage(driver) ; 
 		HomePageEmployee home = new HomePageEmployee(driver);
 		String usertype = "superadmin";
-		String[] st = new String[2] ;  
-		st= login(usertype);
-		
-		login.insertEmail().sendKeys(st[0]);
-		login.insertpass().sendKeys(st[1]);
-		login.loginbtn().click();
+
+		driver=login(usertype ,driver);
 		AssertJUnit.assertTrue(home.checkTrendingInsighs().isDisplayed());
 		
 	

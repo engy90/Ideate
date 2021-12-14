@@ -53,14 +53,8 @@ public class HomeEmployee extends base   {
 	{
 		LoginPage login = new LoginPage(driver) ; 
 		String usertype = "employee";
-		String[] st = new String[2] ;  
-		st= login(usertype);
-		
-		
-		
-		login.insertEmail().sendKeys(st[0]);
-		login.insertpass().sendKeys(st[1]);
-		login.loginbtn().click();
+
+		driver=login(usertype ,driver);
 		HomePageEmployee hp = new HomePageEmployee(driver) ; 
 		
 		

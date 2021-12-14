@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="10771" started-at="2021-11-12T22:31:25 EET" finished-at="2021-11-12T22:31:35 EET">
+  <suite name="Default suite" duration-ms="8389" started-at="2021-12-14T15:02:52 EET" finished-at="2021-12-14T15:03:01 EET">
     <groups>
     </groups>
-    <test name="Test" duration-ms="10771" started-at="2021-11-12T22:31:25 EET" finished-at="2021-11-12T22:31:35 EET">
-      <class name="employeeTC.HomeEmployee">
-        <test-method status="PASS" signature="tearup()[pri:0, instance:employeeTC.HomeEmployee@d554c5f]" name="tearup" is-config="true" duration-ms="6563" started-at="2021-11-12T22:31:25 EET" finished-at="2021-11-12T22:31:31 EET">
+    <test name="Default test" duration-ms="8389" started-at="2021-12-14T15:02:52 EET" finished-at="2021-12-14T15:03:01 EET">
+      <class name="pagesContentChecks.GeneralPage">
+        <test-method status="PASS" signature="tearup()[pri:0, instance:pagesContentChecks.GeneralPage@4c309d4d]" name="tearup" is-config="true" duration-ms="8357" started-at="2021-12-14T15:02:52 EET" finished-at="2021-12-14T15:03:01 EET">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearup -->
-        <test-method status="PASS" signature="homePagevalidation()[pri:0, instance:employeeTC.HomeEmployee@d554c5f]" name="homePagevalidation" duration-ms="3766" started-at="2021-11-12T22:31:31 EET" finished-at="2021-11-12T22:31:35 EET">
+        <test-method status="PASS" signature="homePagevalidation()[pri:0, instance:pagesContentChecks.GeneralPage@4c309d4d]" name="homePagevalidation" duration-ms="4" started-at="2021-12-14T15:03:01 EET" finished-at="2021-12-14T15:03:01 EET">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePagevalidation -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:employeeTC.HomeEmployee@d554c5f]" name="teardown" is-config="true" duration-ms="0" started-at="2021-11-12T22:31:35 EET" finished-at="2021-11-12T22:31:35 EET">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:pagesContentChecks.GeneralPage@4c309d4d]" name="teardown" is-config="true" duration-ms="1" started-at="2021-12-14T15:03:01 EET" finished-at="2021-12-14T15:03:01 EET">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- employeeTC.HomeEmployee -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+      </class> <!-- pagesContentChecks.GeneralPage -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

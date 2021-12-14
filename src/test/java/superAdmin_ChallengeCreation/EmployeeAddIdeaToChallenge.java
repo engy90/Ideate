@@ -37,14 +37,8 @@ public class EmployeeAddIdeaToChallenge extends base {
 
 
 		String usertype = "superadmin";
-		String[] st = new String[2] ;  
-		st= login(usertype);
-		LoginPage login = new LoginPage(driver) ; 
 
-		login.insertEmail().sendKeys(st[0]);
-		login.insertpass().sendKeys(st[1]);
-		login.loginbtn().click();
-		
+		driver=login(usertype ,driver);
         Thread.sleep(1000);
 		
 		String url = prop2.getProperty("addnewchallenge");

@@ -50,13 +50,8 @@ public class SAdminChallengeevaluation extends base {
 		LoginPage login = new LoginPage(driver) ; 
 		HomePageEmployee home = new HomePageEmployee(driver);
 		String usertype = "superadmin";
-		String[] st = new String[2] ;  
-		st= login(usertype);
-		
-		login.insertEmail().sendKeys(st[0]);
-		login.insertpass().sendKeys(st[1]);
-		login.loginbtn().click();
-		Thread.sleep(2000);
+
+		driver=login(usertype ,driver);
 		
 		ChallengesPage chall = new ChallengesPage(driver) ;
 		  Actions build = new Actions(driver);
@@ -247,8 +242,10 @@ public class SAdminChallengeevaluation extends base {
 			build.moveToElement(challenge.clickOnUpdate()).click().build().perform();
 			build.moveToElement(challenge.clickOnannounceClose()).click().build().perform();
 		  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		  AssertJUnit.assertTrue(challenge.CheckWinnerAnnouncedText().isDisplayed()) ;
+		 assertTrue(challenge.CheckWinnerAnnouncedText().isDisplayed()) ;
 		  System.out.println("Winners are announced successfully");
+		  
+		  
 }
 
       
