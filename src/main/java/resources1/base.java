@@ -65,6 +65,7 @@ public class base {
 						 driver = new ChromeDriver() ; 
 						 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 						driver.get(prop2.getProperty("url"));
+						driver.manage().window().maximize();
 						 return driver;
 					}
 					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -79,6 +80,7 @@ public class base {
 						 driver = new ChromeDriver() ; 
 						 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 						 driver.get(prop3.getProperty("url"));
+						 driver.manage().window().maximize();
 						 return driver;
 					}
 					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

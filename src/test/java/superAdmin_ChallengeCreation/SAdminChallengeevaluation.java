@@ -2,6 +2,8 @@ package superAdmin_ChallengeCreation;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import static org.testng.AssertJUnit.assertTrue;
 import org.testng.annotations.Test;
 import java.io.IOException;
@@ -242,7 +244,7 @@ public class SAdminChallengeevaluation extends base {
 			build.moveToElement(challenge.clickOnUpdate()).click().build().perform();
 			build.moveToElement(challenge.clickOnannounceClose()).click().build().perform();
 		  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		 assertTrue(challenge.CheckWinnerAnnouncedText().isDisplayed()) ;
+		 AssertJUnit.assertTrue(challenge.CheckWinnerAnnouncedText().isDisplayed()) ;
 		  System.out.println("Winners are announced successfully");
 		  
 		  

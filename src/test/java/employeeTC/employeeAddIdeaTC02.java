@@ -4,6 +4,8 @@ import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -30,7 +32,7 @@ public class employeeAddIdeaTC02 extends base {
 	
 	
 	
-public WebDriver driver ;
+     public WebDriver driver ;
 	
 	private static Logger log = LogManager.getLogger(employeeAddIdeaTC02.class.getName()) ;
 
@@ -51,25 +53,22 @@ public WebDriver driver ;
 	}
 	
 	
-	@Test//(dataProvider="data")
-	
-	public   void addIdea() throws IOException
+	@Test
+	public   String[] addIdea() throws IOException
 	{
-		
-
 		LoginPage login = new LoginPage(driver) ; 
 		HomePageEmployee home = new HomePageEmployee(driver);
 		String usertype = "employee";
 
 		driver=login(usertype ,driver);
-		
+		String[] datearray2 = date ();
 		home.clickAddIdea().click();
 		AddIdeaPage addidea = new AddIdeaPage(driver) ;
-		addidea.insertTitle().sendKeys("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+		addidea.insertTitle().sendKeys("Automated Idea Creation "+datearray2[0]);
 
-		addidea.inserIdeaSolution().sendKeys("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+		addidea.inserIdeaSolution().sendKeys("this is idea solution automated script "+ datearray2[1] +  "  this is idea solution automated script " +  "  this is idea solution automated script ");
 
-		addidea.inserIdeaProblem().sendKeys("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+		addidea.inserIdeaProblem().sendKeys("this is idea solution automated script "+ "scripto"+datearray2[2] +  "  this is idea solution automated script " +  "  this is idea solution automated script ");
 
 
 		addidea.insertHashtags().sendKeys("#one #two #three");
@@ -83,32 +82,38 @@ public WebDriver driver ;
 		addidea.clickAddNew();
 		addidea.clickOnArticle();
 		
-		//new Actions(driver).moveToElement(addidea.clickRE()).perform();
+	
 		addidea.insertRE().click();
 	addidea.insertRE().sendKeys("Automated test");
 	build.moveToElement(addidea.clickTMS()).moveByOffset(124, 0).click().build().perform();
-//	addidea.clickTMS();
+
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	build.moveToElement(addidea.clickSectorBtoC()).moveByOffset(124, 0).click().build().perform();
-	//addidea.clickSectorBtoC();
-	
+
 	build.moveToElement(addidea.clickMissingSkill()).moveByOffset(124, 0).click().build().perform();
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	//addidea.clickMissingSkill();
+	
 	build.moveToElement(addidea.selectSkillFromList()).moveByOffset(124, 0).click().build().perform();
-	//addidea.selectSkillFromList();
+	
 	
 	 addidea.clickSubmitbtn();
-	AssertJUnit.assertTrue(addidea.justNow().isDisplayed());	
+	 AssertJUnit.assertTrue(addidea.justNow().isDisplayed());
+		
 	String idea1= driver.getCurrentUrl();
 	System.out.println(idea1);
 	 driver=goProfileUrl(driver);
 	ProfilePage ppage = new ProfilePage(driver);
 	// driver.get(prop.getProperty("profile"));
+	
+	
+	
 	build.moveToElement(ppage.clickFirstIdea()).moveByOffset(124, 0).click().build().perform();
 	String idea2 = driver.getCurrentUrl();
 	System.out.println(idea2);
 	AssertJUnit.assertTrue(idea1.equals(idea2));
+	
+	return datearray2;
+	
 	}
 	
 	@AfterTest

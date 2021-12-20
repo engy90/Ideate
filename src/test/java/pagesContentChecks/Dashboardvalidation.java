@@ -1,5 +1,7 @@
 package pagesContentChecks;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
@@ -47,7 +49,7 @@ public class Dashboardvalidation extends base {
 		driver=login(usertype ,driver);
 		HomePageEmployee hp = new HomePageEmployee(driver);
 
-		assertTrue(hp.checkTrendingInsighs().isDisplayed());
+		AssertJUnit.assertTrue(hp.checkTrendingInsighs().isDisplayed());
 
 		for (int i = 1; i <= 7; i++) {
 
@@ -56,7 +58,7 @@ public class Dashboardvalidation extends base {
 		}
 		Actions build = new Actions(driver);
 		build.moveToElement(hp.ideaOfTheMonthCard()).build().perform();
-		assertTrue(hp.ideaOfTheMonthCard().isDisplayed());
+		AssertJUnit.assertTrue(hp.ideaOfTheMonthCard().isDisplayed());
 		build.moveToElement(hp.findHashtags()).build().perform();
 
 		hp.findHashtags().isDisplayed();
@@ -87,7 +89,7 @@ public class Dashboardvalidation extends base {
 
 		for (int i = 1; i <= 5; i++) {
 			try {
-				assertTrue(hp.findTopBU(i).isDisplayed());
+				AssertJUnit.assertTrue(hp.findTopBU(i).isDisplayed());
 			} catch (AssertionError err) {
 
 			}
