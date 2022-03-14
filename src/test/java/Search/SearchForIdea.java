@@ -198,7 +198,7 @@ public class SearchForIdea extends base {
 		if(Count.equalsIgnoreCase("2"))
 		{
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			driver.findElement(By.xpath("//*[contains(@href,'740')]")).isDisplayed();
+			driver.findElement(By.xpath("//*[contains(@href,'840')]")).isDisplayed();
 			System.out.println("first card is displayed Id 840");
 			driver.findElement(By.xpath("//*[contains(@href,'758')]")).isDisplayed();
 			System.out.println("second card is displayed Id 758");

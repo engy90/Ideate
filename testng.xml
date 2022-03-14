@@ -11,7 +11,7 @@
 </listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="Search.SearchForIdea"/>
+<!--       <class name="Search.SearchForIdea"/> -->
       
 <!--       <class name="superAdmin_ChallengeCreation.SAdminChallengeevaluation"/> -->
 <!--       <class name="superAdmin_ChallengeCreation.fortest"/> -->
