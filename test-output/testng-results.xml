@@ -1,21 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+<testng-results skipped="0" failed="1" ignored="0" total="6" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="27381" started-at="2021-12-20T19:45:22 EET" finished-at="2021-12-20T19:45:49 EET">
+  <suite name="Suite" duration-ms="47106" started-at="2022-03-13T20:10:26 EET" finished-at="2022-03-13T20:11:13 EET">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="27381" started-at="2021-12-20T19:45:22 EET" finished-at="2021-12-20T19:45:49 EET">
-      <class name="employeeTC.employeeAddIdeaTC02">
-        <test-method status="PASS" signature="tearup()[pri:0, instance:employeeTC.employeeAddIdeaTC02@445b295b]" name="tearup" is-config="true" duration-ms="27374" started-at="2021-12-20T19:45:22 EET" finished-at="2021-12-20T19:45:49 EET">
+    <test name="Test" duration-ms="47106" started-at="2022-03-13T20:10:26 EET" finished-at="2022-03-13T20:11:13 EET">
+      <class name="Search.SearchForIdea">
+        <test-method status="PASS" signature="tearup()[pri:0, instance:Search.SearchForIdea@2b30a42c]" name="tearup" is-config="true" duration-ms="6524" started-at="2022-03-13T20:10:37 EET" finished-at="2022-03-13T20:10:44 EET">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearup -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:employeeTC.employeeAddIdeaTC02@445b295b]" name="teardown" is-config="true" duration-ms="0" started-at="2021-12-20T19:45:49 EET" finished-at="2021-12-20T19:45:49 EET">
+        <test-method status="PASS" signature="createIdea()[pri:0, instance:Search.SearchForIdea@2b30a42c]" name="createIdea" duration-ms="5132" started-at="2022-03-13T20:10:44 EET" finished-at="2022-03-13T20:10:49 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createIdea -->
+        <test-method status="PASS" signature="searchForIdea()[pri:1, instance:Search.SearchForIdea@2b30a42c]" name="searchForIdea" duration-ms="1645" started-at="2022-03-13T20:10:53 EET" finished-at="2022-03-13T20:10:55 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchForIdea -->
+        <test-method status="PASS" signature="searchForPeople()[pri:2, instance:Search.SearchForIdea@2b30a42c]" name="searchForPeople" duration-ms="782" started-at="2022-03-13T20:10:56 EET" finished-at="2022-03-13T20:10:57 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchForPeople -->
+        <test-method status="PASS" signature="searchForskills()[pri:3, instance:Search.SearchForIdea@2b30a42c]" name="searchForskills" duration-ms="1595" started-at="2022-03-13T20:10:58 EET" finished-at="2022-03-13T20:10:59 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchForskills -->
+        <test-method status="FAIL" signature="searchForBussUnit()[pri:4, instance:Search.SearchForIdea@2b30a42c]" name="searchForBussUnit" duration-ms="11382" started-at="2022-03-13T20:11:01 EET" finished-at="2022-03-13T20:11:12 EET">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(@href,'740')]"}
+  (Session info: chrome=98.0.4758.102)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'EG-QA-ENGY', ip: '192.168.8.110', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_311'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 98.0.4758.102, chrome: {chromedriverVersion: 98.0.4758.102 (273bf7ac8c90..., userDataDir: C:\Users\ihuser\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:38504}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: a88243bef1f28fe04d8ac9b7cf9c33af
+*** Element info: {Using=xpath, value=//*[contains(@href,'740')]}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(@href,'740')]"}
+  (Session info: chrome=98.0.4758.102)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'EG-QA-ENGY', ip: '192.168.8.110', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_311'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 98.0.4758.102, chrome: {chromedriverVersion: 98.0.4758.102 (273bf7ac8c90..., userDataDir: C:\Users\ihuser\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:38504}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: a88243bef1f28fe04d8ac9b7cf9c33af
+*** Element info: {Using=xpath, value=//*[contains(@href,'740')]}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at Search.SearchForIdea.searchForBussUnit(SearchForIdea.java:201)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.util.concurrent.FutureTask.run(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchForBussUnit -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:Search.SearchForIdea@2b30a42c]" name="teardown" is-config="true" duration-ms="1" started-at="2022-03-13T20:11:13 EET" finished-at="2022-03-13T20:11:13 EET">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- employeeTC.employeeAddIdeaTC02 -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- Search.SearchForIdea -->
+      <class name="employeeTC.Login">
+        <test-method status="PASS" signature="tearup()[pri:0, instance:employeeTC.Login@73eb439a]" name="tearup" is-config="true" duration-ms="10876" started-at="2022-03-13T20:10:26 EET" finished-at="2022-03-13T20:10:37 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearup -->
+        <test-method status="PASS" signature="employeeLogin()[pri:0, instance:employeeTC.Login@73eb439a]" name="employeeLogin" duration-ms="605" started-at="2022-03-13T20:10:50 EET" finished-at="2022-03-13T20:10:51 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- employeeLogin -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:employeeTC.Login@73eb439a]" name="teardown" is-config="true" duration-ms="0" started-at="2022-03-13T20:11:13 EET" finished-at="2022-03-13T20:11:13 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- employeeTC.Login -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

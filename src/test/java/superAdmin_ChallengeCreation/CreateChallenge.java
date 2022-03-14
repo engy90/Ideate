@@ -57,7 +57,7 @@ public class CreateChallenge extends base {
 	}
 	
 	@Test(priority=0)
-	public void addnewChallenge() throws IOException
+	public void addnewChallenge() throws IOException, InterruptedException
 	{
 		AddnewchallengePage add = new AddnewchallengePage(driver) ;
 		 Actions build = new Actions(driver);
@@ -77,6 +77,8 @@ public class CreateChallenge extends base {
 	     
 	     build.moveToElement(add.clickSkills()).click().build().perform();
 	     build.moveToElement(add.clickAnalyze()).click().build().perform();
+	     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	     build.moveToElement(add.clickSaveBtn()).build().perform();
 	     build.moveToElement(add.clickSaveBtn()).click().build().perform();
 	  
 

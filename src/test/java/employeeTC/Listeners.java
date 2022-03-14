@@ -15,10 +15,10 @@ import resources1.ExtentReporterNG;
 import resources1.base;
 
 public class Listeners extends base implements ITestListener {
-	
-	ExtentReports extent  = ExtentReporterNG.getReportObject();
 	ExtentTest test;
-	ThreadLocal<ExtentTest> extentTest =new ThreadLocal<ExtentTest>() ; 
+	ExtentReports extent  = ExtentReporterNG.getReportObject();
+	
+	ThreadLocal <ExtentTest>extentTest = new ThreadLocal  <ExtentTest>();
 	
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -30,7 +30,7 @@ public class Listeners extends base implements ITestListener {
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
-		extentTest.get().log(Status.PASS, "success");
+		test.log(Status.PASS, "success");
 		WebDriver driver = null ; 
 		String tc= result.getMethod().getMethodName();
 		try {

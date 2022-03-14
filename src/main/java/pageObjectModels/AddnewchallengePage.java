@@ -56,7 +56,7 @@ public class AddnewchallengePage extends base{
 	
 	public WebElement clickToday() 
 	{
-		int day = currentDate ();
+		int day = currentDate1 ();
 		
 		return driver.findElement(By.xpath(todayDay1+day+todayDate2));
 	}

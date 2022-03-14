@@ -68,7 +68,9 @@ public class SAdminChallengeevaluation extends base {
 		build.moveToElement(challenge.clickOnUpdate()).click().build().perform();
 		build.moveToElement(challenge.clickOnUpdatephase()).click().build().perform();
 		Thread.sleep(2000);
+		
 		build.moveToElement(challenge.clickOnUpdate()).click().build().perform();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		build.moveToElement(challenge.clickOnUpdatephase()).click().build().perform();
 		CrowedEvaluationPage cr = new CrowedEvaluationPage(driver);
 		
@@ -77,42 +79,38 @@ public class SAdminChallengeevaluation extends base {
 		String path2 = "]/child::div[1]/child::div[1]/child::div[";
 		String path3 = "]/child::div[2]/child::div[1]/child::ngb-rating/child::span[8]";
 
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		build.moveToElement(cr.options1()).click().build().perform();
-		build.moveToElement(cr.clickShortlist1()).click().build().perform();
-
 		
-		
-		driver.navigate().refresh();
-		build.sendKeys(Keys.PAGE_DOWN).build().perform();
-		build.sendKeys(Keys.PAGE_DOWN).build().perform();
-		Thread.sleep(3000);
-		build.moveToElement(cr.options1()).build().perform();
-		build.moveToElement(cr.options1()).click().build().perform();
-		build.moveToElement(cr.clickShortlist1()).click().build().perform();
-		driver.navigate().refresh();
-		
-		build.sendKeys(Keys.PAGE_DOWN).build().perform();
-		build.sendKeys(Keys.PAGE_DOWN).build().perform();
-		Thread.sleep(4000);
-		build.moveToElement(cr.options1()).build().perform();
-		build.moveToElement(cr.options1()).click().build().perform();
-		build.moveToElement(cr.clickShortlist1()).click().build().perform();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		  for (int i=1; i<=4; i++)
+				
+		  {	  
+			  
+				//driver.navigate().refresh();
+				
+				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS); 
+			  build.moveToElement(cr.options1()).click().build().perform();
+				build.moveToElement(cr.clickShortlist1()).click().build().perform();
+				driver.navigate().refresh();
+			
+			  }
 		driver.navigate().refresh();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-		for (int q = 1; q <= 3; q++) {
+		for (int q = 1; q <= 3; q++) 
+		{
 			Thread.sleep(2000);
 			build.moveToElement(cr.clickShortlisted(q)).click().build().perform();
 			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 
 			build.moveToElement(cr.clickEvaluate1(q)).click().build().perform();
+		
 
 			for (int i = 1; i <= 5; i++)
 
 			{
-				for (int j = 1; j < 2; j++) {
+				for (int j = 1; j < 2; j++) 
+				{
 
 					try {
 
@@ -129,10 +127,11 @@ public class SAdminChallengeevaluation extends base {
 						System.out.println(e);
 					}
 
+				
+
+			
 				}
-
 			}
-
 			Thread.sleep(1000);
 			build.moveToElement(cr.clicksaveparam()).click().build().perform();
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -168,13 +167,14 @@ public class SAdminChallengeevaluation extends base {
 			  build.moveToElement(cr.clickShortlisted(q)).click().build().perform();
 			  build.moveToElement(cr.clickEvaluateCommittee(q)).click().build().perform();
 			
-			  
+		    
 		   for (int i = 1 ; i <=6 ; i++)
 		  
 		  { 
 			  // build.sendKeys(Keys.PAGE_DOWN).build().perform();
 			   
-		   for (int j =1 ; j<=4 ; j++) {
+		   for (int j =1 ; j<=4 ; j++) 
+		   {
 		  
 		  try {
 		  
@@ -185,15 +185,15 @@ public class SAdminChallengeevaluation extends base {
 		  build.moveToElement(driver.findElement(By.xpath(path4+i+path5+j+path6))).click().build().perform();
 		  ///build.sendKeys(Keys.PAGE_DOWN).build().perform();
 		  
-		  } catch(Exception e) {
+		  } 
+		  catch(Exception e) 
+		  {
+			   System.out.println(e);
 			  
-			  
-			  System.out.println(e);
-			  }
 		  
 		  }
 		  
-		  }
+		   }
 		  
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
@@ -202,8 +202,11 @@ public class SAdminChallengeevaluation extends base {
 			driver.navigate().refresh();
 		//	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
+		 
 		  }
-		  //Thread.sleep(1000);
+		  }
+		
+		   //Thread.sleep(1000);
 		  
 		  
 			build.sendKeys(Keys.PAGE_UP).build().perform();
@@ -249,6 +252,7 @@ public class SAdminChallengeevaluation extends base {
 		  
 		  
 }
+	
 
       
       

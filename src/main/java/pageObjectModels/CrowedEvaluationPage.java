@@ -14,7 +14,8 @@ public class CrowedEvaluationPage {
 
 	
 	public WebDriver driver ;
-	
+	By options = By.xpath("//div[text()=' 10 Most Liked Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[1]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i");
+
 	By cardOptions1 = By.xpath("//div[text()=' 10 Most Liked Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[1]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i");
 	By cardOptions2 = By.xpath("//div[text()=' 10 Least Liked Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[1]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i");
 	By cardOptions3 = By.xpath("//div[text()=' All Other Ideas ']/parent::div/child::div[2]/child::div[1]/child::div[1]/child::ite-idea-card/child::div[1]/child::div[2]/child::div[1]/child::div[2]/child::div[1]/i");

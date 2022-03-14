@@ -41,7 +41,7 @@ public class AddIdeaToChallenge extends base
 
 		driver=login(usertype ,driver);
 		  driver.manage().window().maximize();
-		  for (int i =1 ; i<=3 ; i++)
+		  for (int i =1 ; i<=4 ; i++)
 		  {
 		Thread.sleep(2000);
 		  

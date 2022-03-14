@@ -23,6 +23,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import pageObjectModels.HomePageEmployee;
@@ -40,6 +41,7 @@ public class base {
 	public Properties prop1 ; 
 	public Properties prop2;
 	public Properties prop3;
+	static WebDriverWait wait;
 	public WebDriver initializeDriver() throws IOException
 	{
 		
@@ -61,9 +63,10 @@ public class base {
 				 if (browsertype.equalsIgnoreCase("chrome"))
 					{
 						System.out.println(browsertype);
-						System.setProperty("webdriver.chrome.driver", "C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\drivers\\chromedriver95.exe") ; 
+						System.setProperty("webdriver.chrome.driver", "C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\drivers\\chromedriver.exe") ; 
 						 driver = new ChromeDriver() ; 
-						 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+						 wait = new WebDriverWait(driver, 10);
+						// driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 						driver.get(prop2.getProperty("url"));
 						driver.manage().window().maximize();
 						 return driver;
@@ -113,8 +116,34 @@ public class base {
 		
 		return datearray;
 	}
+	public String getIdeanumber(String url)
+	{
+
+		//String url = "https://qa.ideate.ooredoo.com/idea/1257";
+		
+
+		String[] st = url.split("/");
+        String ideaNumb = st[4] ;
+		System.out.println(st[4]);
+		
+		
+		return  ideaNumb ;
+	}
 	
-	public int currentDate ()
+	
+	public String getIdeasCount(String text)
+	{
+         String st = "Showing 2 results";
+		
+
+		String[] st1 = st.split(" ");
+        String ideaCount = st1[1] ;
+		
+		String count = st1[1];
+		return  count ;
+	}
+
+	public int currentDate1 ()
 	{
 
 		Date da = java.util.Calendar.getInstance().getTime();
@@ -122,18 +151,33 @@ public class base {
 		System.out.println(date);
 
 		String[] st = date.split("\\s");
+		
+		String st3 = st[1]+st[2];
         int foo = Integer.parseInt(st[2]);
 		System.out.println(foo);
 		return foo;
 	}
 	
+	public String currentDate ()
+	{
+
+		Date da = java.util.Calendar.getInstance().getTime();
+		String date = da.toString();
+		System.out.println(date);
+
+		String[] st = date.split("\\s");
+		String st3 = st[1]+st[2];
+        
+		return st3;
+	}
+	
 	public String screenshot(String testCasename, WebDriver driver) throws IOException
 	{
-		int number = currentDate();
+		String dateCreated = currentDate();
 		TakesScreenshot ts = (TakesScreenshot) driver ; 
 		File source  = ts.getScreenshotAs(OutputType.FILE);
 		
-		String distenationFile = System.getProperty("user.dir")+"\\reports\\"+ testCasename +number +".png" ; 
+		String distenationFile = System.getProperty("user.dir")+"\\reports\\"+ testCasename +dateCreated +".png" ; 
 		
 		FileUtils.copyFile(source,new File(distenationFile));
 		return distenationFile;
@@ -356,7 +400,7 @@ public void  CloseActiveChlng (String id) throws ClassNotFoundException, SQLExce
 		FileInputStream fis =null;
 		if(prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
 		{
-			fis=  new FileInputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataQA.xlsx") ;
+			fis=  new FileInputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataQA1.xlsx") ;
 		}
 		else
 		{
@@ -396,7 +440,7 @@ public void  CloseActiveChlng (String id) throws ClassNotFoundException, SQLExce
 		FileOutputStream fos =null;
 		if(prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
 		{
-			fos=  new FileOutputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataQA.xlsx") ;
+			fos=  new FileOutputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataQA1.xlsx") ;
 		}
 		else
 		{
@@ -420,7 +464,7 @@ public void  CloseActiveChlng (String id) throws ClassNotFoundException, SQLExce
 		FileInputStream fis =null;
 		if(prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa"))
 		{
-			fis=  new FileInputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataQA.xlsx") ;
+			fis=  new FileInputStream("C:\\Users\\ihuser\\git\\Ideate\\src\\main\\java\\resources1\\testdataQA1.xlsx") ;
 		}
 		else
 		{

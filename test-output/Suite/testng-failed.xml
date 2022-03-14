@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test thread-count="5" name="Test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <listeners>
+    <listener class-name="employeeTC.Listeners"/>
+    <listener class-name="pagesContentChecks.Listeners"/>
+    <listener class-name="Search.Listeners"/>
+    <listener class-name="superAdmin_ChallengeCreation.Listeners"/>
+    <listener class-name="superAdminTC.Listeners"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)" parallel="tests">
     <classes>
-      <class name="superAdmin_ChallengeCreation.CreateChallenge">
+      <class name="Search.SearchForIdea">
         <methods>
-          <include name="tearup"/>
-          <include name="addnewChallenge"/>
-          <include name="employeeaddidea"/>
           <include name="teardown"/>
-          <include name="sAdminevaluatesIdea"/>
-        </methods>
-      </class> <!-- superAdmin_ChallengeCreation.CreateChallenge -->
-      <class name="superAdminTC.quarterEvaluation">
-        <methods>
+          <include name="searchForBussUnit"/>
           <include name="tearup"/>
-          <include name="teardown"/>
-          <include name="expertReview"/>
         </methods>
-      </class> <!-- superAdminTC.quarterEvaluation -->
+      </class> <!-- Search.SearchForIdea -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
