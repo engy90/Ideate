@@ -16,45 +16,41 @@ import pageObjectModels.LoginPage;
 import resources1.base;
 
 public class EmployeeAddIdeaToChallenge extends base {
-	
-	private static Logger log = LogManager.getLogger(EmployeeAddIdeaToChallenge.class.getName()) ;
+
+	private static Logger log = LogManager.getLogger(EmployeeAddIdeaToChallenge.class.getName());
 
 	@BeforeTest
 	public void tearup() throws IOException, ClassNotFoundException, SQLException, InterruptedException
 
 	{
 
-		driver = initializeDriver() ; 
-		if(prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa") )
-		{ 
+		driver = initializeDriver();
+		if (prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa")) {
 			driver.get(prop2.getProperty("url"));
-			
+
 		}
 
-		else 
-		{
+		else {
 			driver.get(prop3.getProperty("url"));
 		}
 
-
 		String usertype = "superadmin";
 
-		driver=login(usertype ,driver);
-        Thread.sleep(1000);
-		
+		driver = login(usertype, driver);
+		Thread.sleep(1000);
+
 		String url = prop2.getProperty("addnewchallenge");
-		 
+
 		driver.get(url);
 		driver.manage().window().maximize();
-}
+	}
+
 	@Test
-	public void  addIdeaToChallenge () throws IOException, InterruptedException
-	
+	public void addIdeaToChallenge() throws IOException, InterruptedException
+
 	{
 		CreateChallenge rr = new CreateChallenge();
 
-		
-		
 	}
-	
+
 }

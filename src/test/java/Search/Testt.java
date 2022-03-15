@@ -27,10 +27,9 @@ import resources1.base;
 
 public class Testt extends base {
 	public WebDriver driver;
-	public String[] datearray2 = date ();
+	public String[] datearray2 = date();
 	private static Logger log = LogManager.getLogger(Testt.class.getName());
-	
-	
+
 	@BeforeTest
 	public void tearup() throws IOException
 
@@ -38,31 +37,29 @@ public class Testt extends base {
 		driver = initializeDriver();
 		String usertype = "employee";
 
-		driver=login(usertype ,driver); 
+		driver = login(usertype, driver);
 	}
-	
-	
-	@Test(priority=1)
-	public void searchForIdea()
-	{
+
+	@Test(priority = 1)
+	public void searchForIdea() {
 		driver.get("https://qa.ideate.ooredoo.com/dashboard");
-		Actions build =  new Actions(driver); 
-		SearchPage search =  new SearchPage(driver);
-		//search.clickonSearch().click();
+		Actions build = new Actions(driver);
+		SearchPage search = new SearchPage(driver);
+		// search.clickonSearch().click();
 		build.moveToElement(search.clickonSearch()).click().build().perform();
 		build.moveToElement(search.sendTextSearch()).sendKeys(datearray2[0]).build().perform();
-		//search.sendTextSearcsearch.sendTextSearch()h().sendKeys(datearray2[0]);
+		// search.sendTextSearcsearch.sendTextSearch()h().sendKeys(datearray2[0]);
 		build.moveToElement(search.clickEnter()).click().build().perform();
-		//search.clickonSearch().click();
+		// search.clickonSearch().click();
 		build.moveToElement(search.clickonFirstIdea()).moveByOffset(20, 20).click().build().perform();
 		String idea2 = driver.getCurrentUrl();
-		//assertTrue(idea1.equals(idea2));
+		// assertTrue(idea1.equals(idea2));
 	}
+
 	@AfterTest
 	public void teardown() {
 		// driver.close();
 
 	}
-	
-	
+
 }

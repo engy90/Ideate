@@ -46,7 +46,7 @@ public class Dashboardvalidation extends base {
 		LoginPage login = new LoginPage(driver);
 		String usertype = "employee";
 
-		driver=login(usertype ,driver);
+		driver = login(usertype, driver);
 		HomePageEmployee hp = new HomePageEmployee(driver);
 
 		AssertJUnit.assertTrue(hp.checkTrendingInsighs().isDisplayed());

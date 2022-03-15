@@ -28,106 +28,90 @@ import pageObjectModels.LoginPage;
 import resources1.base;
 import superAdminTC.Login;
 
-public class HomeEmployee extends base   {
+public class HomeEmployee extends base {
 
-	public WebDriver driver ;
-	private static Logger log = LogManager.getLogger(HomeEmployee.class.getName()) ;
+	public WebDriver driver;
+	private static Logger log = LogManager.getLogger(HomeEmployee.class.getName());
+
 	@BeforeTest
 	public void tearup() throws IOException
-	
+
 	{
-		 driver = initializeDriver() ; 
-			
-		 if(prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa") )
-		 { driver.get(prop2.getProperty("url"));}
-		 
-		 else {
-			 driver.get(prop3.getProperty("url"));
-		 }
-		
-		 driver.manage().window().maximize();
-		 
-		
+		driver = initializeDriver();
+
+		if (prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa")) {
+			driver.get(prop2.getProperty("url"));
+		}
+
+		else {
+			driver.get(prop3.getProperty("url"));
+		}
+
+		driver.manage().window().maximize();
+
 	}
-	
+
 	@Test
-	public void homePagevalidation() throws IOException
-	{
-		LoginPage login = new LoginPage(driver) ; 
+	public void homePagevalidation() throws IOException {
+		LoginPage login = new LoginPage(driver);
 		String usertype = "employee";
 
-		driver=login(usertype ,driver);
-		HomePageEmployee hp = new HomePageEmployee(driver) ; 
-		
-		
+		driver = login(usertype, driver);
+		HomePageEmployee hp = new HomePageEmployee(driver);
+
 		AssertJUnit.assertTrue(hp.checkTrendingInsighs().isDisplayed());
-		
-		for(int i = 1 ; i<=7 ; i++)
-		{
-			
+
+		for (int i = 1; i <= 7; i++) {
+
 			AssertJUnit.assertTrue(hp.findTrendingInsights(i).isDisplayed());
-			System.out.println("Trending insights # "+i+ "is displayed ");
+			System.out.println("Trending insights # " + i + "is displayed ");
 		}
 		Actions build = new Actions(driver);
 		build.moveToElement(hp.ideaOfTheMonthCard()).build().perform();
 		AssertJUnit.assertTrue(hp.ideaOfTheMonthCard().isDisplayed());
 		build.moveToElement(hp.findHashtags()).build().perform();
-		
+
 		hp.findHashtags().isDisplayed();
-		//hp.findTopHashttaged().isDisplayed();
-		
-		
-		for(int i = 1 ; i<=5 ; i++)
-		{
-			
-			AssertJUnit.assertTrue(hp.findTopHashttaged( i ).isDisplayed());
-			System.out.println("hashtag number"+i+ "is displayed ");
+		// hp.findTopHashttaged().isDisplayed();
+
+		for (int i = 1; i <= 5; i++) {
+
+			AssertJUnit.assertTrue(hp.findTopHashttaged(i).isDisplayed());
+			System.out.println("hashtag number" + i + "is displayed ");
 		}
-        build.moveToElement(hp.findTms()).build().perform();
-        hp.findTms().isDisplayed();
-		//hp.findTopHashttaged().isDisplayed();
-		for(int i = 1 ; i<=5 ; i++)
-		{
+		build.moveToElement(hp.findTms()).build().perform();
+		hp.findTms().isDisplayed();
+		// hp.findTopHashttaged().isDisplayed();
+		for (int i = 1; i <= 5; i++) {
 			AssertJUnit.assertTrue(hp.findTopTMS(i).isDisplayed());
-			System.out.println("TMS"+i+ "is displayed ");
+			System.out.println("TMS" + i + "is displayed ");
 		}
 		build.moveToElement(hp.findskills()).build().perform();
 		hp.findskills().isDisplayed();
-		//hp.findTopHashttaged().isDisplayed();
-		for(int i = 1 ; i<=5 ; i++)
-		{
+		// hp.findTopHashttaged().isDisplayed();
+		for (int i = 1; i <= 5; i++) {
 			AssertJUnit.assertTrue(hp.findtopSkills(i).isDisplayed());
-			System.out.println("Skill "+i+ "is displayed ");
+			System.out.println("Skill " + i + "is displayed ");
 		}
 		build.moveToElement(hp.findBU()).build().perform();
 		hp.findBU().isDisplayed();
-		//hp.findTopHashttaged().isDisplayed();
-		
-		
-			for(int i = 1 ; i<=5 ; i++)
-		{
-				try 
-				{AssertJUnit.assertTrue(hp.findTopBU( i ).isDisplayed());}
-				catch(AssertionError err)
-				{
-					
-					
-				}
-			System.out.println("BU"+i+ "is displayed ");
+		// hp.findTopHashttaged().isDisplayed();
+
+		for (int i = 1; i <= 5; i++) {
+			try {
+				AssertJUnit.assertTrue(hp.findTopBU(i).isDisplayed());
+			} catch (AssertionError err) {
+
+			}
+			System.out.println("BU" + i + "is displayed ");
 		}
-		
-		
-		
-		
-		
+
 	}
 
-	
 	@AfterTest
-	public void teardown()
-	{
-		//driver.close();
-		
+	public void teardown() {
+		// driver.close();
+
 	}
-	
+
 }

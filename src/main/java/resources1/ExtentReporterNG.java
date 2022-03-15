@@ -5,12 +5,13 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class ExtentReporterNG {
 
-	 static ExtentReports extent ; 
-	public static ExtentReports  getReportObject() {
-		
+	static ExtentReports extent;
+
+	public static ExtentReports getReportObject() {
+
 		// ExtentReports , ExtentSparkReporter
 
-		String path =System.getProperty("user.dir")+"\\reports\\index.html";
+		String path = System.getProperty("user.dir") + "\\reports\\index.html";
 
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
 
@@ -18,12 +19,12 @@ public class ExtentReporterNG {
 
 		reporter.config().setDocumentTitle("Test Results");
 
-		extent =new ExtentReports();
+		extent = new ExtentReports();
 
 		extent.attachReporter(reporter);
 
 		extent.setSystemInfo("Tester", "Engy Nassar");
-		return extent ; 
-		
+		return extent;
+
 	}
 }

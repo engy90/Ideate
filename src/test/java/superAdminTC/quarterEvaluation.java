@@ -38,16 +38,17 @@ import pageObjectModels.WinningPodiumPage;
 import resources1.base;
 
 public class quarterEvaluation extends base {
-	private static Logger log = LogManager.getLogger(quarterEvaluation.class.getName()) ;
+	private static Logger log = LogManager.getLogger(quarterEvaluation.class.getName());
 	public String url;
-	public WebDriver driver = null ; ; 
-    public WebDriverWait wait ;
+	public WebDriver driver = null;;
+	public WebDriverWait wait;
+
 	@BeforeClass
 	public void tearup() throws IOException, ClassNotFoundException, SQLException
 
 	{
 
-	   driver = initializeDriver();
+		driver = initializeDriver();
 		if (prop1.getProperty("testEnvironmet").equalsIgnoreCase("qa")) {
 			driver.get(prop2.getProperty("url"));
 
@@ -59,7 +60,7 @@ public class quarterEvaluation extends base {
 
 		String usertype = "superadmin";
 
-		driver=login(usertype ,driver);
+		driver = login(usertype, driver);
 		String id = resetQuarter();
 		String url = prop2.getProperty("evaluationurl") + id + "/expert-review";
 		driver.manage().window().maximize();
@@ -67,7 +68,6 @@ public class quarterEvaluation extends base {
 
 	}
 
-	
 	@Test(priority = 0)
 	public void expertReview() throws IOException, InterruptedException {
 		CrowedEvaluationPage cr = new CrowedEvaluationPage(driver);
@@ -81,7 +81,6 @@ public class quarterEvaluation extends base {
 		build.moveToElement(cr.options1()).click().build().perform();
 		build.moveToElement(cr.clickShortlist1()).click().build().perform();
 
-		
 		driver.switchTo().alert().accept();
 		driver.navigate().refresh();
 		Thread.sleep(2000);
@@ -112,7 +111,7 @@ public class quarterEvaluation extends base {
 					try {
 
 						wait = new WebDriverWait(driver, 20);
-						
+
 						wait.until(
 								ExpectedConditions.visibilityOfElementLocated(By.xpath(path1 + i + path2 + j + path3)));
 
@@ -139,35 +138,27 @@ public class quarterEvaluation extends base {
 		build.sendKeys(Keys.PAGE_UP).build().perform();
 		Thread.sleep(1000);
 		build.moveToElement(cr.clickUpdate()).click().build().perform();
-		
+
 		build.moveToElement(cr.moveToNextStage()).click().build().perform();
 		wait = new WebDriverWait(driver, 20);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"sc-gadget__toggler pointer\"]")));
-		
-		
-	}
-	
-	
-	
-		 @Test(dependsOnMethods = { "expertReview" })
-		public void committeestage() throws IOException, InterruptedException 
-		{
-		
-			 committeeStage test = new committeeStage();
-			 test.committeeEvaluation(driver);
-			 
-			
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//div[@class=\"sc-gadget__toggler pointer\"]")));
 
-		}
-		 
+	}
+
+	@Test(dependsOnMethods = { "expertReview" })
+	public void committeestage() throws IOException, InterruptedException {
+
+		committeeStage test = new committeeStage();
+		test.committeeEvaluation(driver);
+
+	}
+
 //______Winning Podium
-		  
-		 @Test(dependsOnMethods = { "committeestage" })
-			public void WinningPodium () 
-			{
-			
-	
-		
+
+	@Test(dependsOnMethods = { "committeestage" })
+	public void WinningPodium() {
+
 	}
 
 	@AfterTest

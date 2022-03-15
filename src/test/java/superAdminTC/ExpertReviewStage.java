@@ -1,4 +1,4 @@
- package superAdminTC;
+package superAdminTC;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
@@ -22,8 +22,9 @@ import pageObjectModels.LoginPage;
 import resources1.base;
 
 public class ExpertReviewStage extends base {
-	
-	private static Logger log = LogManager.getLogger(ExpertReviewStage.class.getName()) ;
+
+	private static Logger log = LogManager.getLogger(ExpertReviewStage.class.getName());
+
 	@BeforeTest
 	public void tearup() throws IOException, ClassNotFoundException, SQLException
 
@@ -41,14 +42,14 @@ public class ExpertReviewStage extends base {
 
 		String usertype = "superadmin";
 
-		driver=login(usertype ,driver);
+		driver = login(usertype, driver);
 		String id = resetQuarter();
 		String url = prop2.getProperty("evaluationurl") + id + "/expert-review";
 		driver.manage().window().maximize();
 		driver.get(url);
 
 	}
-	
+
 	@Test
 	public void expertReview() throws IOException, InterruptedException {
 		CrowedEvaluationPage cr = new CrowedEvaluationPage(driver);
@@ -62,7 +63,6 @@ public class ExpertReviewStage extends base {
 		build.moveToElement(cr.options1()).click().build().perform();
 		build.moveToElement(cr.clickShortlist1()).click().build().perform();
 
-		
 		driver.switchTo().alert().accept();
 		driver.navigate().refresh();
 		Thread.sleep(2000);
@@ -120,9 +120,9 @@ public class ExpertReviewStage extends base {
 		build.sendKeys(Keys.PAGE_UP).build().perform();
 		Thread.sleep(1000);
 		build.moveToElement(cr.clickUpdate()).click().build().perform();
-		
+
 		build.moveToElement(cr.moveToNextStage()).click().build().perform();
 
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-}
+	}
 }

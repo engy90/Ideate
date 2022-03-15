@@ -27,73 +27,62 @@ public class AddIdeaToChallenge extends base
 
 {
 	public WebDriver driver;
-	private static Logger log = LogManager.getLogger(AddIdeaToChallenge.class.getName()) ;
-	
+	private static Logger log = LogManager.getLogger(AddIdeaToChallenge.class.getName());
+
 	@Test
-	public  void addIdea () throws IOException, InterruptedException
-	{
-		
+	public void addIdea() throws IOException, InterruptedException {
+
 		driver = initializeDriver();
-		LoginPage login = new LoginPage(driver) ;
-		ChallengesPage chall = new ChallengesPage(driver) ;
+		LoginPage login = new LoginPage(driver);
+		ChallengesPage chall = new ChallengesPage(driver);
 		HomePageEmployee home = new HomePageEmployee(driver);
 		String usertype = "employee";
 
-		driver=login(usertype ,driver);
-		  driver.manage().window().maximize();
-		  for (int i =1 ; i<=4 ; i++)
-		  {
-		Thread.sleep(2000);
-		  
-		Actions build = new Actions(driver);
-		build.moveToElement(chall.clickOnChallenge()).click().build().perform();
-		build.moveToElement(chall.clickOnActiveChallenge()).click().build().perform();
-		build.moveToElement(chall.clickOnAddIdea()).click().build().perform();
-      
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		AddIdeaPage addidea = new AddIdeaPage(driver) ;
-		addidea.insertTitle().sendKeys("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+		driver = login(usertype, driver);
+		driver.manage().window().maximize();
+		for (int i = 1; i <= 4; i++) {
+			Thread.sleep(2000);
 
-		addidea.inserIdeaSolution().sendKeys("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+			Actions build = new Actions(driver);
+			build.moveToElement(chall.clickOnChallenge()).click().build().perform();
+			build.moveToElement(chall.clickOnActiveChallenge()).click().build().perform();
+			build.moveToElement(chall.clickOnAddIdea()).click().build().perform();
 
-		addidea.inserIdeaProblem().sendKeys("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			AddIdeaPage addidea = new AddIdeaPage(driver);
+			addidea.insertTitle().sendKeys(
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
 
+			addidea.inserIdeaSolution().sendKeys(
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
 
-		addidea.insertHashtags().sendKeys("#one #two #three");
-		addidea.insertIdeaUnique().sendKeys("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
-		
-		
-		new Actions(driver).moveToElement(addidea.clickAddNew()).perform();
-		build.moveToElement(addidea.clickAddNew()).moveByOffset(124, 0).click().build().perform();
-		addidea.clickAddNew();
-		addidea.clickOnArticle();
-		
-		addidea.insertRE().click();
-	addidea.insertRE().sendKeys("Automated test");
-	build.moveToElement(addidea.clickTMS()).moveByOffset(124, 0).click().build().perform();
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	build.moveToElement(addidea.clickSectorBtoC()).moveByOffset(124, 0).click().build().perform();
-	build.moveToElement(addidea.clickMissingSkill()).moveByOffset(124, 0).click().build().perform();
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	build.moveToElement(addidea.selectSkillFromList()).moveByOffset(124, 0).click().build().perform();
+			addidea.inserIdeaProblem().sendKeys(
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
 
-	
-	 addidea.clickSubmitbtn();
-	AssertJUnit.assertTrue(addidea.justNow().isDisplayed());	
-	String idea1= driver.getCurrentUrl(); 
-	
-		
-		
-		
-		  }	
-		
-		
-		
+			addidea.insertHashtags().sendKeys("#one #two #three");
+			addidea.insertIdeaUnique().sendKeys(
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+
+			new Actions(driver).moveToElement(addidea.clickAddNew()).perform();
+			build.moveToElement(addidea.clickAddNew()).moveByOffset(124, 0).click().build().perform();
+			addidea.clickAddNew();
+			addidea.clickOnArticle();
+
+			addidea.insertRE().click();
+			addidea.insertRE().sendKeys("Automated test");
+			build.moveToElement(addidea.clickTMS()).moveByOffset(124, 0).click().build().perform();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			build.moveToElement(addidea.clickSectorBtoC()).moveByOffset(124, 0).click().build().perform();
+			build.moveToElement(addidea.clickMissingSkill()).moveByOffset(124, 0).click().build().perform();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			build.moveToElement(addidea.selectSkillFromList()).moveByOffset(124, 0).click().build().perform();
+
+			addidea.clickSubmitbtn();
+			AssertJUnit.assertTrue(addidea.justNow().isDisplayed());
+			String idea1 = driver.getCurrentUrl();
+
+		}
+
 	}
-	
-	
-	
-	
-	
 
 }

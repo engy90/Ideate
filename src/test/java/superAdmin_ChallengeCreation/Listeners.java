@@ -16,10 +16,10 @@ import resources1.base;
 
 public class Listeners extends base implements ITestListener {
 	ExtentTest test;
-	ExtentReports extent  = ExtentReporterNG.getReportObject();
-	
-	ThreadLocal <ExtentTest>extentTest = new ThreadLocal  <ExtentTest>();
-	
+	ExtentReports extent = ExtentReporterNG.getReportObject();
+
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
+
 	@Override
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
@@ -31,75 +31,75 @@ public class Listeners extends base implements ITestListener {
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
 		test.log(Status.PASS, "success");
-		WebDriver driver = null ; 
-		String tc= result.getMethod().getMethodName();
+		WebDriver driver = null;
+		String tc = result.getMethod().getMethodName();
 		try {
-			 
-			driver = (WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
-		} 
-		catch (Exception e) {
+
+			driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
+					.get(result.getInstance());
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			
+
 		}
-		  try { String destPath = screenshot(tc , driver) ;
-		  extentTest.get().addScreenCaptureFromPath(destPath, result.getMethod().getMethodName()) ;
-			//screenshot(tc , driver) ;
+		try {
+			String destPath = screenshot(tc, driver);
+			extentTest.get().addScreenCaptureFromPath(destPath, result.getMethod().getMethodName());
+			// screenshot(tc , driver) ;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
+		}
+
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
 		extentTest.get().fail(result.getThrowable());
-		WebDriver driver = null ; 
-	String tc= result.getMethod().getMethodName();
-	try {
-		 
-		driver = (WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
-	} 
-	catch (Exception e) {
-		// TODO Auto-generated catch block
-		
-	}
-	  try {
-		  String destPath = screenshot(tc , driver) ;
-		  extentTest.get().addScreenCaptureFromPath(destPath, result.getMethod().getMethodName()) ;
-		//String destPath = screenshot(tc , driver) ;
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} 
-	
-		
+		WebDriver driver = null;
+		String tc = result.getMethod().getMethodName();
+		try {
+
+			driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
+					.get(result.getInstance());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+
+		}
+		try {
+			String destPath = screenshot(tc, driver);
+			extentTest.get().addScreenCaptureFromPath(destPath, result.getMethod().getMethodName());
+			// String destPath = screenshot(tc , driver) ;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onStart(ITestContext context) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
 		extent.flush();
-		
+
 	}
 
 }

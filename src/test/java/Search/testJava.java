@@ -12,18 +12,13 @@ public class testJava {
 			System.out.println(date);
 
 			String[] st = date.split("\\s");
-			
-			String st3 = st[1]+st[2];
-	        int foo = Integer.parseInt(st[2]);
+
+			String st3 = st[1] + st[2];
+			int foo = Integer.parseInt(st[2]);
 			System.out.println(foo);
-			//return foo;
-		}
-				
-				
-			
-			
-			
+			// return foo;
 		}
 
 	}
 
+}
